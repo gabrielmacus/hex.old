@@ -1,0 +1,12 @@
+{
+    "User":[
+        {
+          "text":"menu.home",
+           "href":"#!/"
+        },
+        {
+            "text":"menu.products",
+            "href":"#!/product"
+        }
+    ]
+}

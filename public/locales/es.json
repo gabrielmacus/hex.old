@@ -1,0 +1,21 @@
+{
+  "username":"Nombre de usuario",
+  "password":"Contaseña",
+  "login":"Ingresar",
+  "list.empty":"No hay elementos para mostrar",
+  "list.loading":"Cargando elementos",
+  "menu.products":"Productos",
+  "menu.home":"Inicio",
+  "product.plural":"Productos",
+  "edit":"Editar",
+  "delete":"Eliminar",
+  "confirm.delete":"Confirmar eliminación",
+  "yes":"Si",
+  "no":"No",
+  "submit":"Aceptar",
+
+  "_id":"ID",
+  "title":"Título",
+
+  "name":"Nombre"
+}

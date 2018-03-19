@@ -1,0 +1,10 @@
+
+<div class="form-field" data-ng-if="type != 'submit'">
+    <label>{{ $parent.label | translate}}</label>
+    <input  data-ng-model="$parent.model" type="{{$parent.type}}">
+</div>
+
+
+<div class="form-submit" data-ng-if="type == 'submit'">
+    <input type="submit" value="{{ $parent.label | translate}}">
+</div>

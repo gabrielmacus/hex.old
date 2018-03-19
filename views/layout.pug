@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/reset.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.17.0/angular-translate.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.17.0/angular-translate-loader-static-files.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.js")
+
+    script(src="javascripts/angular-swing.min.js")
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js")
+
+    script(src="javascripts/init.js")
+
+    // controllers
+
+    script(src="javascripts/controllers/MainController.js")
+
+    script(src="javascripts/controllers/ListController.js")
+
+    script(src="javascripts/controllers/SaveController.js")
+
+    // directives
+
+    script(src="javascripts/directives/ListDirective.js")
+
+    script(src="javascripts/directives/PaginatorDirective.js")
+
+    script(src="javascripts/directives/MenuDirective.js")
+
+    script(src="javascripts/directives/TopDirective.js")
+
+    script(src="javascripts/directives/ConfirmDirective.js")
+
+    script(src="javascripts/directives/FieldDirective.js")
+
+  body(data-ng-app="app" data-ng-controller="main-controller")
+
+    aside
+        menu(data-source="'/api/user/menu'")
+
+
+    main(data-ng-view)
+
+    confirm(data-options="confirmDialog")
