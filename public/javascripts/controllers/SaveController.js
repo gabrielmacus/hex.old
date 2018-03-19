@@ -3,7 +3,7 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
     $scope.item = {};
 
     var url ="/api/".concat($routeParams.model);
-
+    $scope.model=$routeParams.model;
     if($routeParams.id)
     {
         url+="/"+$routeParams.id;

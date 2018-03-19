@@ -7,6 +7,10 @@
         {
             "text":"menu.products",
             "href":"#!/product"
-        }
+        },
+      {
+        "text":"menu.facebookPosts",
+        "href":"#!/facebook-post"
+      }
     ]
 }

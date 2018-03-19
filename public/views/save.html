@@ -1,8 +1,5 @@
 
-<form data-ng-submit="saveItem()" >
-    <field data-model="item.title" data-label="title"></field>
-
-    <field   data-label="submit" data-type="submit"></field>
+<form data-ng-submit="saveItem()" data-ng-include="'/views/forms/'+model+'-form.html'">
 
 
 </form>

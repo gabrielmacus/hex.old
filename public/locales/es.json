@@ -6,7 +6,9 @@
   "list.loading":"Cargando elementos",
   "menu.products":"Productos",
   "menu.home":"Inicio",
+  "menu.facebookPosts":"Posts de facebook",
   "product.plural":"Productos",
+  "facebook-post.plural":"Posts de facebook",
   "edit":"Editar",
   "delete":"Eliminar",
   "confirm.delete":"Confirmar eliminación",
@@ -16,6 +18,6 @@
 
   "_id":"ID",
   "title":"Título",
-
-  "name":"Nombre"
+  "name":"Nombre",
+  "price":"Precio"
 }

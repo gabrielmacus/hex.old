@@ -27,6 +27,15 @@
     {
       "GET":{"access_level":3}
     },
+    "api.user.menu":
+    {
+      "GET":{"access_level":3
+      }
+    },
+    "api.product":
+    {
+      "GET":{"access_level":3}
+    },
     "api.user":
     {
       "GET":{"access_level":1},

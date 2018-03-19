@@ -11,7 +11,8 @@ app.controller('main-controller', function ($scope,$rootScope,$cookies) {
 
     $rootScope.config={
         product:{fields:["_id","title"]},
-        user:{fields:['name']}
+        user:{fields:['name']},
+        "facebook-post":{fields:['title','description','price','type']}
 
     };
 });
