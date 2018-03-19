@@ -15,7 +15,7 @@ function logIn() {
 
 page.evaluate(function(){
         document.querySelector("input[name='email']").value = "gabrielmacus@hotmail.com";
-        document.querySelector("input[name='pass']").value = "sercan02";
+        document.querySelector("input[name='pass']").value = "";
         document.querySelector("#login_form").submit();
         console.log("Logged in ");
     });
