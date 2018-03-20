@@ -1,4 +1,4 @@
-app.controller('main-controller', function ($scope,$rootScope,$cookies) {
+app.controller('main-controller', function ($scope,$rootScope,$cookies,$location) {
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
     $rootScope.errorHandler=function (e) {
@@ -8,11 +8,58 @@ app.controller('main-controller', function ($scope,$rootScope,$cookies) {
 
 
 
+    var defaultActions=
+        [
+            {
+                "text":"edit", "action": function (i) {
+                $location.path('/'+$routeParams.model+'/save/'+i._id)
+            }
+            },
+            {
+                "text":"delete", "action":
+                function (i) {
+
+                    $rootScope.confirmDialog=
+                        {
+                            yes:function () {
+
+                                $scope.deleteElement(i._id);
+                                $rootScope.confirmDialog.open=false;
+
+                            },
+                            title:"confirm.delete",
+                            open:true
+                        };
+
+
+                }
+            }
+        ];
+    $rootScope.defaultActions = function (i) {
+
+        return defaultActions;
+
+    };
+
+    var galleryActions =defaultActions.concat([{"text":"uploadFiles","action":function (g) {
+
+        $location.path("/gallery/"+g._id+"/upload");
+
+    }}]);
+
 
     $rootScope.config={
         product:{fields:["_id","title"]},
         user:{fields:['name']},
-        "facebook-post":{fields:['title','description','price','type']}
+        "facebook-post":{fields:['title','description','price','type']},
+        gallery:{
+            fields:['name'],
+            actions:function () {
+
+                return  galleryActions;
+            }
+
+        }
 
     };
 });

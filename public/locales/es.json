@@ -8,6 +8,7 @@
   "menu.products":"Productos",
   "menu.home":"Inicio",
   "menu.facebookPosts":"Posts de facebook",
+  "menu.galleries":"Galerías",
   "product.plural":"Productos",
   "facebook-post.plural":"Posts de facebook",
   "edit":"Editar",
@@ -35,5 +36,8 @@
   "frecuency.the.days":"Los",
   "frecuency.each.time":"Cada",
 
-  "facebook.groupsId":"Ids de los grupos"
+  "facebook.groupsId":"Ids de los grupos",
+
+  "gallery.plural":"Galerías",
+  "uploadFiles":"Subir archivos"
 }

@@ -19,7 +19,6 @@ var index = require('./routes/index');
 var rest = require('./routes/rest');
 var auth = require('./routes/auth');
 var development = require('./routes/development');
-var media = require('./routes/media');
 
 var app = express();
 
@@ -45,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
 
-app.use('/media',media);
 app.use('/', index);
 app.use('/api', rest);
 app.use('/auth',auth);
@@ -76,44 +74,11 @@ app.use(function(err, req, res, next) {
 //Cron jobs
 
 var cron = require('node-cron');
-var FacebookPost = require('./models/FacebookPost');
 var FacebookPostService = require('./services/FacebookPostService');
-cron.schedule('* * * * * *', function(){
+cron.schedule('* * * * *', function(){
 
-    var now = new Date();
-    var idsToUpdate = [];
-    FacebookPost.find({}).exec(function (err,posts) {
-
-        if(err)
-        {
-            console.error(err);
-        }
-
-
-        posts.forEach(function (p) {
-
-            if(FacebookPostService.checkTime(p,now))
-            {
-                idsToUpdate.push(p._id);
-
-                console.log("Executing "+p._id)
-            }
-
-        });
-
-        if(idsToUpdate.length > 0)
-        {
-            FacebookPost.update({_id:{'$in':idsToUpdate}},{'$set':{'last_publish':now}}).exec(function (err,r) {
-
-                if(err)
-                {
-                    console.error(err);
-                }
-                console.log(r);
-            });
-
-        }
-    });
+    //console.log("Cron ran at "+new Date().toString());
+   FacebookPostService.cron();
 
 });
 

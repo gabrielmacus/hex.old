@@ -16,7 +16,7 @@ var schema = new Schema({
     description:{type:String},
     price:{type:String},
     frecuency:[publishOption],
-    groups:[Number],
+    groups:[String],
     type:{type:String,enum:['sale'],required:true,default:'sale'},
     last_publish:{type:Date},
     createdBy:{type:Schema.Types.ObjectId,ref:'User',required:true}

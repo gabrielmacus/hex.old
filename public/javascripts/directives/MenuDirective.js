@@ -10,14 +10,19 @@ app
 
                 $scope.setActive=function(){
 
-                    $scope.menuItems.filter(function (t) {
+                    var filter = $scope.menuItems.filter(function (t) {
                         t.active = false;
                         t = angular.copy(t);
                         t = t.href.replace("#!","");
 
 
                         return  (t.indexOf("/"+$routeParams.model)==0)||(t==$location.path());
-                    })[0].active=true;
+                    });
+                    if(filter && filter.length)
+                    {
+
+                        filter[0].active=true;
+                    }
                 };
                 $scope.$on('$locationChangeSuccess', $scope.setActive);
 

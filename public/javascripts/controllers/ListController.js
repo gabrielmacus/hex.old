@@ -6,48 +6,7 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$loca
     $scope.query = {page:1};
     $scope.items = [];
 
-    var defaultActions=
-        [
-            {
-                "text":"edit", "action": function (i) {
-                $location.path('/'+$routeParams.model+'/save/'+i._id)
-            }
-            },
-            {
-                "text":"delete", "action":
-                function (i) {
-
-                    $rootScope.confirmDialog=
-                        {
-                            yes:function () {
-
-                                $scope.deleteElement(i._id);
-                                $rootScope.confirmDialog.open=false;
-
-                            },
-                            title:"confirm.delete",
-                            open:true
-                        };
-                    /*
-                    var r = confirm("Eliminar");
-                    if (r == true) {
-                        $scope.deleteElement(i._id);
-                    } else {
-
-                    }*/
-
-
-                }
-            }
-        ];
-    $rootScope.defaultActions = function (i) {
-
-        return defaultActions;
-
-    };
-
-
-    $scope.actions = ($scope.config[$routeParams.model].actions)?$scope.config[$routeParams.model].actions:$rootScope.defaultActions;
+    $scope.actions = ($rootScope.config[$routeParams.model].actions)?$rootScope.config[$routeParams.model].actions:$rootScope.defaultActions;
 
 
     $scope.pagination = {};

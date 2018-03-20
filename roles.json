@@ -11,22 +11,7 @@
   },
   "User":
   {
-    "api.pet.$.multimedia":
-    {
-      "PUT":{"access_level":1}
-    },
-    "api.pet.$":
-    {
-      "PUT":{"access_level":1}
-    },
-    "api.pet":
-    {
-      "GET":{"access_level":3}
-    },
-    "api.pet-type":
-    {
-      "GET":{"access_level":3}
-    },
+
     "api.user.menu":
     {
       "GET":{"access_level":3
@@ -48,12 +33,6 @@
       "GET":{"access_level":1}
     }
     ,
-    "api.person.demo":
-    {
-      "POST":{},
-      "GET":{"access_level":0}
-    }
-    ,
     "api.person.$":
     {
       "GET":{"access_level":1},
@@ -65,17 +44,10 @@
       "GET":{"access_level":1},
       "POST":{}
     },
-    "api.post-demo.$":
-    {
-      "GET":{"access_level":2}
-    },
-    "api.post-demo":
-    {
-      "POST":{}
-    },
+
     "api.file.upload":
     {
-      "POST":{}
+      "PUT":{}
     }
 
   }

@@ -9,6 +9,10 @@
             "href":"#!/product"
         },
       {
+        "text":"menu.galleries",
+        "href":"#!/gallery"
+      },
+      {
         "text":"menu.facebookPosts",
         "href":"#!/facebook-post"
       }
