@@ -1,7 +1,12 @@
 
-<div class="form-field" data-ng-if="type != 'submit'">
+<div class="form-field" data-ng-if="type != 'submit' && type != 'textarea'">
     <label>{{ $parent.label | translate}}</label>
     <input  data-ng-model="$parent.model" type="{{$parent.type}}">
+</div>
+
+<div class="form-field" data-ng-if="type == 'textarea'">
+    <label>{{ $parent.label | translate}}</label>
+    <textarea  data-ng-model="$parent.model"></textarea>
 </div>
 
 

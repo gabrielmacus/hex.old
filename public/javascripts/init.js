@@ -1,4 +1,4 @@
-var app = angular.module("app", ['gajus.swing',"ngRoute","pascalprecht.translate",'ngCookies']);
+var app = angular.module("app", ['gajus.swing',"ngRoute","pascalprecht.translate",'ngCookies','ngTagsInput']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {

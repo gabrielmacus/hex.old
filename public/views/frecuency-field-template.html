@@ -1,0 +1,10 @@
+<div class="form-field">
+    <label data-ng-if="label">{{label | translate}}</label>
+    <span>{{"frecuency.the.days" | translate}}</span>
+
+    <select data-ng-model="model.days" multiple data-ng-options="'day.'+day | translate for day in dayOptions">
+    </select>
+    <span>{{"frecuency.each.time" | translate}}</span>
+    <input data-ng-model="model.time.number" type="number" >
+    <select data-ng-model="model.time.unit"  data-ng-options="k as v | translate for (k,v) in timeOptions"></select>
+</div>

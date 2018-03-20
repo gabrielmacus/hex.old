@@ -9,7 +9,7 @@ var page = require('webpage').create();
 
 var status=false;
 
-
+var groups = JSON.parse(args[1]);
 
 function logIn() {
 
@@ -21,28 +21,6 @@ page.evaluate(function(args){
     },args);
 }
 
-/*
-function publishContent() {
-
-
-    var email = system.args[1];
-    var password = system.args[2];
-    var title = system.args[3];
-    var text = system.args[4];
-
-    var args = JSON.stringify({title:title,text:text});
-
-    page.evaluate(function(args){
-
-        args = JSON.parse(args);
-
-        document.querySelector('[aria-label^="Crear"] textarea').value=args.text;//"Actualizacion "+Math.random();
-        document.querySelector("[aria-label^='Crear'] [type='submit']").click();
-        console.log("Content published");
-    },args);
- 
-}
-*/
 function postInGroup() {
 
 
@@ -66,56 +44,11 @@ function postInGroup() {
 
     },args);
 
-
-
-    //page.render('C:\\Users\\Gabriel\\output.png');
-
-    //
-
-/*    page.includeJs("https://code.jquery.com/jquery-3.3.1.min.js", function() {
-
-        var pos = page.evaluate(function () {
-
-            return $("[placeholder*='vendes?']").offset();
-        });
-
-        page.sendEvent('click', pos.left, pos.top, 'left');
-        console.log("Pos is", JSON.stringify(pos));
-
-        setTimeout(function () {
-            page.evaluate(function (args) {
-                window.callPhantom();
-            });
-        }, 3000)
-
-
-
-    });*/
-
-    /*
-    setTimeout(function () {
-
-                var element = page.evaluate(function() {
-                    return document.querySelector("[placeholder='Precio']");
-              });
-
-                page.sendEvent('click', element, element.offsetTop, 'left');
-                page.sendEvent('keypress', page.event.key.A, null, null, 0);
-        page.evaluate(function(args) {
-            window.callPhantom();
-        });
-    }, 1000)*/
-  /*  var element = page.evaluate(function() {
-        return document.querySelector("[placeholder*='vendes?']");
-    });
-    page.sendEvent('click', element.offsetLeft, element.offsetTop, 'left');
-*/
-
 }
 
 function goToGroup(id) {
 
-
+    console.log("Going to group "+id);
     page.open("https://m.facebook.com/groups/"+id);
 
 }
@@ -164,16 +97,20 @@ page.onCallback = function(data) {
             break;
     }
 
-    //page.render('C:\\Users\\Gabriel\\output.png');
 
 };
 page.settings.userAgent = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko';
+
+
+
+var groupId = groups.pop();
 page.onLoadFinished=function (response) {
 
     if(response=='success')
     {
         console.log("Status: "+status);
 
+        page.render('C:\\Users\\Puers\\Pictures\\facebook\\image'+groupId+"-"+status+".png");
 
         if(!status || typeof  status == "undefined" || status == "false")
         {
@@ -192,23 +129,40 @@ page.onLoadFinished=function (response) {
         else if(status == "logged-in")
         {
             status="in-group";
-            goToGroup(args[1]);
+            goToGroup(groupId);
 
         }
         else if(status == "in-group")
         {
+
             sellSomething();
             status='selling-something';
 
         }
         else if(status=='selling-something')
         {
+            console.log("Posting on ",groupId);
             postInGroup();
-            status="end";
+
+            if(groups.length > 0)
+            {
+                status = "logged-in";
+                groupId = groups.pop();
+
+                goToGroup(groupId);
+
+            }
+            else
+            {
+                status="end";
+            }
+
+
+
         }
         else if(status=='end')
         {
-            console.log("Succesfully posted on group")
+            console.log("Succesfully posted on group");
             phantom.exit();
         }
         else
