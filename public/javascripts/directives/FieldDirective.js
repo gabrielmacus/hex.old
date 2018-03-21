@@ -39,6 +39,6 @@ app
 
             },
 
-            templateUrl:"/views/field-template.html"
+            templateUrl:"/views/directives/field-template.html"
         };
     });

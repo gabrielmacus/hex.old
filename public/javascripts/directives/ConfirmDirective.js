@@ -15,6 +15,6 @@ app
 
             },
 
-            templateUrl:"/views/confirm-template.html"
+            templateUrl:"/views/directives/confirm-template.html"
         };
     });

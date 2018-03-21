@@ -41,11 +41,19 @@ app.controller('main-controller', function ($scope,$rootScope,$cookies,$location
 
     };
 
-    var galleryActions =defaultActions.concat([{"text":"uploadFiles","action":function (g) {
+    var galleryActions =defaultActions.concat(
+            [{"text":"viewFiles","action":function (g) {
 
-        $location.path("/gallery/"+g._id+"/upload");
+            $location.path('/gallery/'+g._id+'/files/');
 
-    }}]);
+            }},
+            {"text":"uploadFiles","action":function (g) {
+
+            $location.path("/gallery/"+g._id+"/upload");
+
+            }}
+
+         ]);
 
 
     $rootScope.config={
@@ -59,7 +67,11 @@ app.controller('main-controller', function ($scope,$rootScope,$cookies,$location
                 return  galleryActions;
             }
 
-        }
+        },
+        file:
+            {
+                fields:['name']
+            }
 
     };
 });

@@ -15,6 +15,6 @@ app
 
             },
 
-            templateUrl:"/views/top-template.html"
+            templateUrl:"/views/directives/top-template.html"
         };
     });

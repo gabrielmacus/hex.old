@@ -1,12 +1,2 @@
-<form data-ng-controller="upload-controller">
-
-    <upload-field  data-model="files" data-gallery="gallery" data-galeries-url="/api/gallery" data-upload-url="/api/file/upload" data-save-url="/api/file/"></upload-field>
-
-    {{files}}
-
-   <!--
-    <field data-type="custom">
-        <select data-ng-options="g.name as g  for g in galeries"></select>
-    </field>
--->
+<form data-ng-controller="upload-controller"  data-ng-submit="saveFiles(files)" data-ng-include="'/views/forms/upload-form.html'">
 </form>

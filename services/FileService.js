@@ -7,8 +7,9 @@ module.exports=
     {
         ftpUpload:function (file,callback) {
 
-            var path = p.join(root,"/public/"+file.url);
+            var path = p.join(root,"/public/"+file.path);
             var basename =  uuidv4()+p.extname(path);
+
 
             var now = new Date();
             var datePath="/files/"+now.getFullYear()+"/"+(now.getMonth()+1)+"/"+now.getDate();
@@ -27,13 +28,13 @@ module.exports=
                         return callback(err);
                     }
                     c.put(path,destPath,function (err) {
-
+                        c.end();
                         if(err)
                         {
                             return callback(err);
                         }
-                        c.end();
-                        return callback(err,{url:p.join(process.env.FTP_URL,destPath)});
+
+                        return callback(err,{path: destPath});
 
 
                     })

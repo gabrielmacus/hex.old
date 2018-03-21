@@ -17,6 +17,6 @@ app
 
             },
 
-            templateUrl:"/views/frecuency-field-template.html"
+            templateUrl:"/views/directives/frecuency-field-template.html"
         };
     });

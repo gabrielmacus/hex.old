@@ -4,12 +4,7 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
 
     var url ="/api/".concat($routeParams.model);
     $scope.model=$routeParams.model;
-    if($routeParams.id)
-    {
-        url+="/"+$routeParams.id;
 
-        $scope.loadItem();
-    }
 
     $scope.loadItem=function () {
 
@@ -20,6 +15,16 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
             .catch($rootScope.errorHandler);
 
     }
+
+
+    if($routeParams.id)
+    {
+        $scope.id= $routeParams.id;
+        url+="/"+$routeParams.id;
+
+        $scope.loadItem();
+    }
+
 
 
     $scope.saveItem=function () {

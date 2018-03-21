@@ -24,7 +24,7 @@ module.exports=
                     var extension = path.extname(file.name);
                     mv(file.path,path.join(root,'/public/.tmp/'+basename+extension), function(err) {
 
-                        uploadedFiles.push({url:'/.tmp/'+basename+extension,size:file.size,contentType:file.type,filename:file.name});
+                        uploadedFiles.push({path:'/.tmp/'+basename+extension,size:file.size,contentType:file.type,filename:file.name});
                         callback(err);
 
                     });

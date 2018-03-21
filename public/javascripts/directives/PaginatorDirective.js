@@ -56,6 +56,6 @@
 
                 },
 
-                templateUrl:"/views/paginator-template.html"
+                templateUrl:"/views/directives/paginator-template.html"
             };
         });

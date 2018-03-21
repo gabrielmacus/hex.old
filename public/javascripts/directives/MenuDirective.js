@@ -50,6 +50,6 @@ app
 
             },
 
-            templateUrl:"/views/menu-template.html"
+            templateUrl:"/views/directives/menu-template.html"
         };
     });

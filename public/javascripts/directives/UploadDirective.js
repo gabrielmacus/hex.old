@@ -8,7 +8,7 @@ app
                 uploadUrl:"@",
                 saveUrl:"@",
                 gallery:"=",
-                galeriesUrl:"@",
+                //galeriesUrl:"@",
                 model:"="
             } ,
             link: function (scope, element, attrs) {
@@ -33,20 +33,25 @@ app
             controller:function ($scope,$rootScope) {
 
                 $scope.model = [];
-                $scope.galeries = [];
+
+                /*
+             $scope.galeries = [];
+
+             $scope.loadGaleries=function () {
+                 axios.get($scope.galeriesUrl,{headers:$rootScope.headers})
+                     .then(function (response) {
+                         console.log(response);
+                         $scope.galeries = response.data.docs;
+                         $scope.$apply();
+                     })
+                     .catch($rootScope.errorHandler);
+
+             }
+             $scope.loadGaleries();*/
 
 
-                $scope.loadGaleries=function () {
-                    axios.get($scope.galeriesUrl,{headers:$rootScope.headers})
-                        .then(function (response) {
-                            console.log(response);
-                            $scope.galeries = response.data.docs;
-                            $scope.$apply();
-                        })
-                        .catch($rootScope.errorHandler);
 
-                }
-                $scope.loadGaleries();
+
                 $scope.upload=function (data) {
 
                     axios.put($scope.uploadUrl, data, {headers:$rootScope.headers})
@@ -64,6 +69,8 @@ app
                         })
                         .catch($rootScope.errorHandler);
                 }
+
+                /*
                 $scope.saveFiles=function () {
 
                     asyncForEach($scope.model,function () {
@@ -84,10 +91,10 @@ app
 
 
 
-                }
+                }*/
 
             },
 
-            templateUrl:"/views/upload-template.html"
+            templateUrl:"/views/directives/upload-template.html"
         };
     });

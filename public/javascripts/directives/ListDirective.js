@@ -21,6 +21,6 @@
                     }
                 },
 
-                templateUrl:"/views/list-template.html"
+                templateUrl:"/views/directives/list-template.html"
             };
         });

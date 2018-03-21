@@ -2,7 +2,7 @@
 
     <label>{{label | translate}}</label>
 
-    <input type="file" >
+    <input multiple type="file" >
 
 
     <ul data-ng-if="uploadedFiles && uploadedFiles.length" class="upladed-files">
@@ -13,8 +13,5 @@
             </figure>
         </li>
     </ul>
-
-    <field data-type="submit" data-label="submit"></field>
-
 
 </div>
