@@ -39,7 +39,7 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$loca
 
     }
 
-    $scope.deleteElement=function (id) {
+    $rootScope.deleteElement=function (id) {
 
         axios.delete('/api/'+$routeParams.model+'/'+id,{headers:$rootScope.headers})
             .then(function (response) {

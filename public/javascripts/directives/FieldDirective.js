@@ -14,11 +14,12 @@ app
 
 
             },
-            controller: function ($scope,$element, $transclude,$timeout) {
+            controller: function ($scope,$element ,$transclude,$timeout) {
               if(!$scope.type)
               {
                   $scope.type="text";
               }
+
 
 
                 if($scope.type == 'custom')

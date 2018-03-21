@@ -23,7 +23,7 @@ app.controller('main-controller', function ($scope,$rootScope,$cookies,$location
                         {
                             yes:function () {
 
-                                $scope.deleteElement(i._id);
+                                $rootScope.deleteElement(i._id);
                                 $rootScope.confirmDialog.open=false;
 
                             },

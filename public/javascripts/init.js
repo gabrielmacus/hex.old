@@ -36,6 +36,11 @@ app.config(function ($routeProvider) {
             templateUrl: '/views/list.html',
             controller:"list-controller"
         })
+        .when('/:model/save',
+            {
+                templateUrl:'/views/save.html',
+                controller:'save-controller'
+            })
         .when("/:model/:action",actionRoute)
         .when("/:model/:id/:action",actionRoute)
 

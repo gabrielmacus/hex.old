@@ -12,6 +12,8 @@ const mongoose  =require('mongoose');
 
 process.env.ROLES_PATH = path.join(require('app-root-dir').get(),"test/roles-rest.json");
 
+process.env.NODE_ENV="test";
+var dotenv = require('dotenv').config({path:"C:\\Users\\Puers\\WebstormProjects\\hex\\env\\test.env"});
 describe('REST test', function() {
 
     var token = "";
