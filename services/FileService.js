@@ -5,6 +5,36 @@ const uuidv4 = require('uuid/v4');
 
 module.exports=
     {
+        ftpDelete:function (file,callback) {
+            var c = new FtpClient();
+            c.on('ready',function () {
+
+
+
+                c.delete(file.path,function (err) {
+                    c.end();
+                    if(err)
+                    {
+                        return callback(err);
+                    }
+
+                    return callback();
+
+
+                })
+
+            });
+
+
+            c.connect({
+                host:process.env.FTP_HOST,
+                port:process.env.FTP_PORT,
+                secure:process.env.FTP_SECURE,
+                user:process.env.FTP_USER,
+                password:process.env.FTP_PASSWORD
+
+            });
+        },
         ftpUpload:function (file,callback) {
 
             var path = p.join(root,"/public/"+file.path);

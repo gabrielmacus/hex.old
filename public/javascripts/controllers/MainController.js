@@ -1,4 +1,4 @@
-app.controller('main-controller', function ($scope,$rootScope,$cookies,$location) {
+app.controller('main-controller', function ($sce,$scope,$rootScope,$cookies,$location) {
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
     $rootScope.errorHandler=function (e) {
@@ -70,7 +70,14 @@ app.controller('main-controller', function ($scope,$rootScope,$cookies,$location
         },
         file:
             {
-                fields:['name']
+                fields:[
+                    {label:'image',field:'path',render:function (item) {
+
+                        return "<img src='"+item.path+"' >";
+
+                    }},
+                    'filename'
+                ]
             }
 
     };

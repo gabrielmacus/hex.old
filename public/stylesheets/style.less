@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
 @import url('../style.css');
-*{
+body > *{
   font-family: 'Raleway', sans-serif;
 
 }
@@ -8,4 +8,116 @@
 html,body{
   height: 100%;
   width: 100%;
+}
+.fade {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  right: 0;
+  opacity: 1;
+}
+
+
+.fade.ng-enter,
+.fade.ng-leave {
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.fade.ng-enter {
+  opacity: 0;
+}
+.fade.ng-enter-active {
+  opacity: 1;
+}
+.fade.ng-leave {
+  opacity: 1;
+}
+.fade.ng-leave-active {
+  opacity: 0;
+}
+
+
+
+@theadColor:#212121;
+@mainColor:#3F51B5;
+@padding:20px;
+@padding2:10px;
+
+paginator ol
+{
+  display: flex;
+}
+paginator ol > li
+{
+  padding: @padding2;
+}
+
+body > aside
+{
+  width: 30%;
+  float: left;
+  position: fixed;
+  min-height: 100%;
+  background-color: @mainColor;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+}
+body > main{
+  width: 70%;
+  float: left;
+  position: relative;
+  left: 30%;
+  height: 100%;
+}
+body > aside > menu a
+{
+  transition:all 200ms;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  padding: @padding;
+  color: white;
+}
+body > aside > menu a.active
+{
+  background-color: white;
+  color: @mainColor;
+}
+main > top header
+{
+  padding: @padding;
+}
+main > top header h2
+{
+  font-size: 40px;
+}
+main list > *
+{
+  padding: @padding;
+}
+main list  td,main list  th
+{
+  vertical-align: middle;
+  text-align: left;
+  padding: @padding2;
+  padding-left: @padding;
+}
+main list th
+{
+  background-color: @theadColor;
+  color: white;
+}
+main list tbody tr
+{
+  border-bottom: 1px solid #E0E0E0;
+}
+main list > table{
+  width: 100%;
+}
+
+
+
+main > footer
+{
+  padding: @padding;
 }

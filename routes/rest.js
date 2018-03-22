@@ -324,6 +324,17 @@ router.delete('/:model/:id',function (req,res,next) {
                 }
 
 
+
+                result.remove(function (err) {
+                    if(err)
+                    {
+                        //TODO: Handle errors
+                        console.log(err);
+                    }
+
+                    return res.json({});
+                })
+                /*
                 req.model.remove(query).exec(function (err) {
                     if(err)
                     {
@@ -332,7 +343,7 @@ router.delete('/:model/:id',function (req,res,next) {
                     }
 
                     return res.json({});
-                });
+                });*/
 
             }
         ]);

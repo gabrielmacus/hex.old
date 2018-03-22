@@ -5,13 +5,26 @@
 <table class="list" data-ng-if="listStatus == 'loaded' && (items && items.length > 0)">
     <thead>
     <tr>
-        <th data-ng-repeat="f in fields">{{ f | translate}}</th>
+        <th data-ng-repeat="f in fields">
+            <span data-ng-if="!f.field">{{ f | translate}}</span>
+            <span data-ng-if="f.field && !f.label">{{f.field | translate}}</span>
+            <span data-ng-if="f.label">{{f.label | translate}}</span>
+
+
+
+        </th>
+
         <th class="actions-header">actions</th>
     </tr>
     </thead>
     <tbody>
     <tr data-ng-repeat="i in items">
-        <td data-ng-repeat="f in fields">{{i[f]}}</td>
+        <td data-ng-repeat="f in fields">
+
+            <span data-ng-if="!f.render">{{i[f]}}</span>
+            <span data-ng-if="f.render" data-ng-bind-html="f.render(i)"></span>
+
+        </td>
         <td class="actions-cell">
             <ul class="actions">
                 <li data-ng-repeat="a in getActions(i)" data-ng-click="a.action(i)">{{a.text | translate}}</li>

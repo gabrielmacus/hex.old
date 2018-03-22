@@ -1,4 +1,10 @@
-var app = angular.module("app", ['gajus.swing',"ngRoute","pascalprecht.translate",'ngCookies','ngTagsInput']);
+var app = angular.module("app", ['ngSanitize','ngAnimate','gajus.swing',"ngRoute","pascalprecht.translate",'ngCookies','ngTagsInput']);
+
+app.filter('unsafe', function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
+});
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
@@ -26,6 +32,7 @@ var actionRoute = {
         $scope.model  = $routeParams.model;
     }
 };
+
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {

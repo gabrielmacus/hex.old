@@ -7,8 +7,6 @@ var schema = new Schema({
     size:{type:Number,required:true},
     path:{type:String},
     gallery:{type:Schema.Types.ObjectId,ref:'Gallery'}
-
-
 }, {
     timestamps: true
 });
@@ -34,5 +32,13 @@ schema.post('validate', function(doc,next) {
 
     
 });
+schema.pre('remove',function(next) {
 
+    FileService.ftpDelete(this,function (err) {
+
+        next(err);
+
+
+    })
+});
 module.exports= mongoose.model('File',schema);

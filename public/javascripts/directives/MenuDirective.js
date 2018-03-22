@@ -14,14 +14,14 @@ app
                         t.active = false;
                         t = angular.copy(t);
                         t = t.href.replace("#!","");
-
-
-                        return  (t.indexOf("/"+$routeParams.model)==0)||(t==$location.path());
+                        return (t==$location.path());
                     });
                     if(filter && filter.length)
                     {
+                        console.log(filter);
 
                         filter[0].active=true;
+
                     }
                 };
                 $scope.$on('$locationChangeSuccess', $scope.setActive);

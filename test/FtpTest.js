@@ -5,11 +5,12 @@ const FileService = require('../services/FileService');
 const path = require('path');
 
 process.env.NODE_ENV="test";
-var dotenv = require('dotenv').config({path:"C:\\Users\\Gabriel\\WebstormProjects\\hex\\env\\test.env"});
+var dotenv = require('dotenv').config({path:"C:\\Users\\Puers\\WebstormProjects\\hex\\env\\test.env"});
 
 
 describe('FTP test', function(){
 
+    var image = {};
 
     it('Uploads Image',function(done) {
         var file = {path:"/test-files/gorro.jpg"};
@@ -20,6 +21,7 @@ describe('FTP test', function(){
             expect(result).to.have.property('path');
             var p = result.path;
             expect(path.extname(p)).to.equal(".jpg");
+            image.path = result.path;
             done();
         });
     });
@@ -39,6 +41,15 @@ describe('FTP test', function(){
         });
     });
 
+    it('Deletes Image file ',function(done) {
+
+
+        FileService.ftpDelete(image,function (error) {
+
+            expect(error).to.equal(undefined);
+            done();
+        });
+    });
 
 
 });

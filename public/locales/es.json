@@ -40,5 +40,8 @@
 
   "gallery.plural":"Galerías",
   "uploadFiles":"Subir archivos",
-  "viewFiles":"Ver archivos"
+  "viewFiles":"Ver archivos",
+  "filename":"Nombre del archivo",
+  "path":"Ruta",
+  "image":"Imagen"
 }

@@ -10,9 +10,11 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.17.0/angular-translate.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.17.0/angular-translate-loader-static-files.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.js")
+    script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.8/angular-animate.min.js")
 
     script(src="javascripts/angular-swing.min.js")
     script(src="javascripts/ng-tags-input.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.min.js")
     script(src="javascripts/asyncForeach.js")
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js")
@@ -51,12 +53,12 @@ html
 
 
 
-  body(data-ng-app="app" data-ng-controller="main-controller")
+  body(data-ng-app="app",data-ng-controller="main-controller")
 
     aside
         menu(data-source="'/api/user/menu'")
 
 
-    main(data-ng-view)
+    main(data-ng-view,class="fade")
 
     confirm(data-options="confirmDialog")
