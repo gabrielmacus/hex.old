@@ -29,10 +29,18 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$loca
 
             .then(function (response) {
 
-                $scope.items = response.data.docs;
-                $scope.pagination = response.data.pagination;
-                $scope.status='loaded';
-                $scope.$apply();
+                if(response.data.docs.length == 0 && $scope.pagination.page > 1)
+                {
+                    $scope.goTo($scope.pagination.page - 1);
+                }
+                else
+                {
+                    $scope.items = response.data.docs;
+                    $scope.pagination = response.data.pagination;
+                    $scope.status='loaded';
+                    $scope.$apply();
+                }
+
 
             })
             .catch($rootScope.errorHandler);
@@ -44,7 +52,6 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$loca
         axios.delete('/api/'+$routeParams.model+'/'+id,{headers:$rootScope.headers})
             .then(function (response) {
 
-                console.log(response.data);
                 $scope.loadList();
 
             })

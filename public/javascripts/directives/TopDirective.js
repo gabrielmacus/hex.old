@@ -4,7 +4,8 @@ app
         return {
             restrict:"E",
             scope: {
-                title:"="
+                title:"=",
+                titleObject:"="
             },
 
             link: function (scope, element, attrs) {

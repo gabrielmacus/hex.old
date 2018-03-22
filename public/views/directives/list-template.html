@@ -14,11 +14,11 @@
 
         </th>
 
-        <th class="actions-header">actions</th>
+        <th class="actions-header"></th>
     </tr>
     </thead>
     <tbody>
-    <tr data-ng-repeat="i in items">
+    <tr class="item" data-ng-repeat="i in items">
         <td data-ng-repeat="f in fields">
 
             <span data-ng-if="!f.render">{{i[f]}}</span>
@@ -26,7 +26,8 @@
 
         </td>
         <td class="actions-cell">
-            <ul class="actions">
+            <a class="button open-actions" data-ng-class="{opened:dropdown[i._id]}" data-ng-click="dropdown[i._id]=!dropdown[i._id]" >{{'actions' | translate}} <img class="dropdown-icon" src="/images/drop-down-arrow.svg"></a>
+            <ul class="fade actions" data-ng-if="dropdown[i._id]">
                 <li data-ng-repeat="a in getActions(i)" data-ng-click="a.action(i)">{{a.text | translate}}</li>
             </ul>
         </td>

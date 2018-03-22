@@ -1,18 +1,28 @@
 
 
 
-<div class="form-field" data-ng-if="type != 'submit' && type != 'textarea'">
-    <label>{{ $parent.label | translate}}</label>
-    <input data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
+<div data-ng-init="formFields = (formFields)?formFields+1:1" class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'">
+    <input id="{{formFields}}" data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
+    <label for="{{formFields}}">{{ $parent.label | translate}}</label>
+
 </div>
 
 
-<div class="form-field" data-ng-if="type == 'textarea'">
-    <label>{{ $parent.label | translate}}</label>
-    <textarea  data-ng-model="$parent.model"></textarea>
+<div  data-ng-init="formFields = (formFields)?formFields+1:1"  class="form-field" data-ng-if="type == 'textarea'">
+    <textarea id="{{formFields}}"   data-ng-model="$parent.model"></textarea>
+    <label  for="{{formFields}}">{{ $parent.label | translate}}</label>
+</div>
+
+<div  data-ng-init="formFields = (formFields)?formFields+1:1"  class="form-field" data-ng-if="type == 'tags'">
+    <input id="{{formFields}}"  data-ng-model="$parent.model" type="text">
+    <label  for="{{formFields}}">{{ $parent.label | translate}} <b style="font-size: 15px;font-weight: 600">({{'commaSeparated' | translate}})</b></label>
+    <ul class="tags">
+        <li data-ng-repeat="t in $parent.model">{{t}}</li>
+    </ul>
 </div>
 
 
-<div class="form-submit" data-ng-if="type == 'submit'">
-    <input type="submit" value="{{ $parent.label | translate}}">
-</div>
+<footer style="    padding-top: 0;" class="form-submit" data-ng-if="type == 'submit'">
+
+    <input type="submit" class="button" value="{{ $parent.label | translate}}">
+</footer>

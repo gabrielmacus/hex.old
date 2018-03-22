@@ -11,6 +11,7 @@
   "menu.galleries":"Galerías",
   "product.plural":"Productos",
   "facebook-post.plural":"Posts de facebook",
+  "fileGallery.plural":"Archivos de la galería {{galleryName}}",
   "edit":"Editar",
   "delete":"Eliminar",
   "confirm.delete":"Confirmar eliminación",
@@ -43,5 +44,7 @@
   "viewFiles":"Ver archivos",
   "filename":"Nombre del archivo",
   "path":"Ruta",
-  "image":"Imagen"
+  "image":"Imagen",
+  "actions":"Acciones",
+  "commaSeparated":"separados por coma"
 }

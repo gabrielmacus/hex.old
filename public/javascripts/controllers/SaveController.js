@@ -29,7 +29,6 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
 
     $scope.saveItem=function () {
 
-        console.log($scope.item)
 
         axios({
             url:url,
@@ -40,6 +39,9 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
             .then(function (response) {
 
                 console.log(response.data);
+                $location.path("/"+$scope.model);
+                $scope.$apply();
+
 
             })
             .catch($rootScope.errorHandler);

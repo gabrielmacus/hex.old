@@ -30,10 +30,10 @@
                             $scope.paginator.prev = $scope.pagination.page -1 ;
                         }
 
-                        if($scope.pagination.page < $scope.pagination.pages)
+                        if($scope.pagination.page <= $scope.pagination.pages)
                         {
 
-                            for(var i=$scope.pagination.page;i<=$scope.pagination.page + $scope.offset;i++)
+                            for(var i=$scope.pagination.page;i<= ($scope.pagination.page + $scope.offset);i++)
                             {
 
                                 if(i <= $scope.pagination.pages)
@@ -41,9 +41,13 @@
                                     $scope.paginator.pages.push(i);
                                 }
                             }
+
+
+                        }
+                        if($scope.pagination.page < $scope.pagination.pages)
+                        {
                             $scope.paginator.next = $scope.pagination.page +1;
                         }
-
                         return $scope.paginator;
                     }
 

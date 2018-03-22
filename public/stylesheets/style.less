@@ -11,17 +11,15 @@ html,body{
 }
 .fade {
   position: absolute;
-  top: 0;
-  left: 30%;
-  right: 0;
+
   opacity: 1;
 }
 
 
 .fade.ng-enter,
 .fade.ng-leave {
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all 0.18s ease;
+  transition: all 0.18s ease;
 }
 .fade.ng-enter {
   opacity: 0;
@@ -38,34 +36,53 @@ html,body{
 
 
 
+
 @theadColor:#212121;
 @mainColor:#3F51B5;
+@buttonColor:#3F51B5;
+@buttonHoverColor:#7986CB;
 @padding:20px;
 @padding2:10px;
 
 paginator ol
 {
+  background: #EEEEEE;
+  /* color: white; */
+  font-weight: 500;
   display: flex;
+  align-items: center;
+  margin-top: @padding;
 }
 paginator ol > li
 {
   padding: @padding2;
 }
+paginator ol > li.active{
+  color: @mainColor;
+}
+paginator ol > .paginator-page
+{
 
+  font-size: 20px;
+}
 body > aside
 {
   width: 30%;
   float: left;
   position: fixed;
   min-height: 100%;
+  z-index: 3;
   background-color: @mainColor;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
 body > main{
   width: 70%;
+  top: 0;
+  right: 0;
   float: left;
-  position: relative;
+  background: #fafafa;
+  position: absolute;
   left: 30%;
   height: 100%;
 }
@@ -83,11 +100,11 @@ body > aside > menu a.active
   background-color: white;
   color: @mainColor;
 }
-main > top header
+main  top header
 {
   padding: @padding;
 }
-main > top header h2
+main  top header h2
 {
   font-size: 40px;
 }
@@ -97,6 +114,7 @@ main list > *
 }
 main list  td,main list  th
 {
+  position: relative;
   vertical-align: middle;
   text-align: left;
   padding: @padding2;
@@ -106,18 +124,175 @@ main list th
 {
   background-color: @theadColor;
   color: white;
+  font-weight: 600;
+
 }
 main list tbody tr
 {
+ //background-color: #EEEEEE; ;
+  background: white;
   border-bottom: 1px solid #E0E0E0;
 }
+main list tbody tr:nth-child(even)
+{
+  //background-color: white;
+}
 main list > table{
+  width: ~"calc(100% - 40px)";
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin: auto;
+}
+
+.button
+{
+  outline: 0;
+  border:0;
+
+  letter-spacing: 0.05em;
+  background: @buttonColor;
+  padding: 10px;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition:all 0.1s;
+  cursor: pointer;
+
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover
+{
+  background-color: @buttonHoverColor;
+
+}
+table .open-actions
+{
+  float: left;
+}
+table td > span >  img
+{
+  width: 30%;
+}
+.button:active
+{
+  box-shadow: none;
+}
+main  footer
+{
+  padding: @padding;
+}
+
+.open-actions + .actions{
+
+  z-index: 1;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #E0E0E0;
+  position: absolute;
+  top: 47px;
+  min-width: 130px;
+}
+.open-actions + .actions li
+{
+  cursor: pointer;
+   padding: @padding2;
+
+}
+.open-actions + .actions li:hover
+{
+  background-color: @mainColor;
+  color: white;
+}
+.open-actions
+{
+  display: flex;
+  align-items: center;
+}
+.open-actions.opened{
+  background-color: @buttonHoverColor;
+}
+
+.open-actions.opened > img
+{
+  transform: scale(-1);
+}
+.open-actions > img
+{
+  transition:all 0.15s;
+  margin-left: 15px;
+  height: 12px;
+}
+
+confirm > .overlay
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
   width: 100%;
+  height: 100%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+}
+confirm .confirmation-dialog
+{margin: auto;
+  background: white;
+
+}
+confirm .confirmation-dialog header
+{
+  padding:@padding;
+}
+confirm .confirmation-dialog .options
+{
+  padding-left: @padding;
+  padding-bottom: @padding;
+}
+confirm .confirmation-dialog .options span
+{
+  cursor: pointer;
+  text-decoration: underline;
+  color: @buttonColor;
+}
+confirm .confirmation-dialog .options span:last-child
+{
+  margin-left: 10px;
+}
+.form-field
+{
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+.form-field > label{
+
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 20px;
+  transition:all 0.2s;
+  top: 45px;
+  color: @mainColor;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 
 
-main > footer
+.form-field  input,.form-field textarea
 {
-  padding: @padding;
+  width: 100%;
+  outline: 0;
+  padding: 5px;
+  font-size: 20px;
+  border: 0;
+  margin-top: 20px;
+  border-bottom: 2px solid @mainColor;
+  background: transparent;
+}
+
+  .form-field > input:focus +  label,.form-field input.ng-not-empty + label,.form-field > textarea:focus +  label,.form-field textarea.ng-not-empty + label
+{
+  font-size: 15px;
+    font-weight: 600;
+  top: 25px;
 }

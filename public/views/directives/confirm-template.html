@@ -1,12 +1,14 @@
-<div class="confirmation-dialog" data-ng-if="options.open">
+<div class="overlay fade"  data-ng-if="options.open">
+    <div class="confirmation-dialog">
 
-    <header>
+        <header>
 
-        <h3>{{ options.title | translate }}</h3>
-    </header>
-    <div class="options">
-        <span class="yes" data-ng-click="options.yes()">{{ 'yes' | translate}}</span>
-        <span class="no" data-ng-click="options.open = false">{{ 'no' | translate}}</span>
+            <h3>{{ options.title | translate }}</h3>
+        </header>
+        <div class="options">
+            <span class="yes" data-ng-click="options.yes()">{{ 'yes' | translate}}</span>
+            <span class="no" data-ng-click="options.open = false">{{ 'no' | translate}}</span>
+        </div>
+
     </div>
-
 </div>
