@@ -60,7 +60,10 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
     $rootScope.config={
         product:{fields:["_id","title"]},
         user:{fields:['name']},
-        "facebook-post":{fields:['title','description','price','type']},
+        "facebook-post":{fields:['title','description','price',{label:'type',field:'type',render:function (item) {
+
+                return $scope.$eval("'facebook.post.type."+item.type+"' | translate ");
+        }}]},
         gallery:{
             fields:['name'],
             actions:function () {

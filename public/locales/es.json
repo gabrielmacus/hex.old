@@ -39,6 +39,7 @@
   "frecuency":"Frecuencia",
   "frecuency.selectUnit":"Minutos u horas",
   "facebook.groupsId":"Ids de los grupos",
+  "facebook.post.type.sale":"Venta",
 
   "gallery.plural":"Galerías",
   "uploadFiles":"Subir archivos",
@@ -52,6 +53,9 @@
   "menu.persons":"Personas",
   "person.plural":"Personas",
   "surname":"Apellido",
+  "type":"Tipo",
+
+
 
   "person":"Persona"
 }

@@ -67,11 +67,6 @@ router.all(['/:model' ,'/:model/:id([a-fA-F\\d]{24})','/:model/:id([a-fA-F\\d]{2
 
         req.limit = parseInt(process.env.PAGINATION_LIMIT_DEFAULT);
 
-        mongoose.connect(process.env.DB_STRING).catch(function (err) {
-
-            //TODO: handle errors / handle db connection errors
-            console.error(err);
-        });
 
         next();
     }
@@ -239,6 +234,9 @@ router.put('/:model/:id',function (req,res,next) {
                 }
 
                 req.model.update(query,{'$set':req.body}).exec(function (err,result) {
+
+
+
                     if(err)
                     {
                         //TODO: Handle errors

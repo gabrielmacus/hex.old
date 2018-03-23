@@ -1,21 +1,21 @@
 
 
 
-<div data-ng-init="formFields = (formFields)?formFields+1:1" class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'">
-    <input id="{{formFields}}" data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
-    <label for="{{formFields}}">{{ $parent.label | translate}}</label>
+<div  class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'">
+    <input id="{{$parent.label}}" data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
+    <label for="{{$parent.label}}">{{ $parent.label | translate}}</label>
 
 </div>
 
 
-<div  data-ng-init="formFields = (formFields)?formFields+1:1"  class="form-field" data-ng-if="type == 'textarea'">
-    <textarea id="{{formFields}}"   data-ng-model="$parent.model"></textarea>
-    <label  for="{{formFields}}">{{ $parent.label | translate}}</label>
+<div   class="form-field" data-ng-if="type == 'textarea'">
+    <textarea id="{{$parent.label}}"   data-ng-model="$parent.model"></textarea>
+    <label  for="{{$parent.label}}">{{ $parent.label | translate}}</label>
 </div>
 
-<div  data-ng-init="formFields = (formFields)?formFields+1:1"  class="form-field" data-ng-if="type == 'tags'">
-    <input data-ng-init="$parent.model= []" id="{{formFields}}"  data-ng-keyup="processTagInput($event,$parent.model)" type="text">
-    <label  for="{{formFields}}">{{ $parent.label | translate}} <b style="font-size: 15px;font-weight: 600">({{'commaSeparated' | translate}})</b></label>
+<div class="form-field" data-ng-if="type == 'tags'">
+    <input data-ng-init="$parent.model= []" id="{{$parent.label}}"  data-ng-keyup="processTagInput($event,$parent.model)" type="text">
+    <label  for="{{$parent.label}}">{{ $parent.label | translate}} <b style="font-size: 15px;font-weight: 600">({{'commaSeparated' | translate}})</b></label>
 
     <ul class="tags"  >
         <li data-ng-repeat="(k,t) in $parent.model">{{t}} <span style="cursor: pointer"  data-ng-click="$parent.model.splice(k,1)" class="delete-tag"><img src="/images/icons-delete.svg"></span></li>
