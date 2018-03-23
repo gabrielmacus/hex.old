@@ -15,6 +15,10 @@
       {
         "text":"menu.facebookPosts",
         "href":"#!/facebook-post"
+      },
+      {
+        "text":"menu.persons",
+        "href":"#!/person"
       }
     ]
 }

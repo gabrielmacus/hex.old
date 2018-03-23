@@ -1,4 +1,4 @@
-var app = angular.module("app", ['ngSanitize','ngAnimate','gajus.swing',"ngRoute","pascalprecht.translate",'ngCookies','ngTagsInput']);
+var app = angular.module("app", ['ngSanitize','ngAnimate',"checklist-model",'gajus.swing',"ngRoute","pascalprecht.translate",'ngCookies','ngTagsInput']);
 
 app.filter('unsafe', function($sce) {
     return function(val) {
@@ -48,6 +48,10 @@ app.config(function ($routeProvider) {
                 templateUrl:'/views/save.html',
                 controller:'save-controller'
             })
+        .when("/:model/:id/save",{
+            templateUrl:'/views/save.html',
+            controller:'save-controller'
+        })
         .when("/:model/:action",actionRoute)
         .when("/:model/:id/:action",actionRoute)
 

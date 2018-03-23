@@ -37,6 +37,24 @@ app
 
                 }
 
+                $scope.processTagInput=function (e,tagsArray) {
+                  var tags = e.target.value;
+                  var commaIdx =tags.indexOf(",");
+                  if(commaIdx >-1)
+                  {
+                      var tag = tags.replace(",","");
+                      if(tagsArray.indexOf(tag)==-1)
+                      {
+                          tagsArray.push( tag);
+                      }
+
+                      e.target.value="";
+
+
+                  }
+
+                }
+
             },
 
             templateUrl:"/views/directives/field-template.html"

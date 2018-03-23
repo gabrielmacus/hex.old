@@ -1,4 +1,4 @@
-app.controller('main-controller', function ($sce,$scope,$rootScope,$cookies,$location) {
+app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,$cookies,$location) {
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
     $rootScope.errorHandler=function (e) {
@@ -12,7 +12,8 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$cookies,$loc
         [
             {
                 "text":"edit", "action": function (i) {
-                $location.path('/'+$routeParams.model+'/save/'+i._id)
+
+                $location.path('/'+$routeParams.model+'/'+i._id+'/save')
             }
             },
             {
@@ -78,6 +79,10 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$cookies,$loc
                     }},
                     'filename'
                 ]
+            },
+        person:
+            {
+                fields:['name','surname']
             }
 
     };

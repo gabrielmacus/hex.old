@@ -14,10 +14,11 @@
 </div>
 
 <div  data-ng-init="formFields = (formFields)?formFields+1:1"  class="form-field" data-ng-if="type == 'tags'">
-    <input id="{{formFields}}"  data-ng-model="$parent.model" type="text">
+    <input data-ng-init="$parent.model= []" id="{{formFields}}"  data-ng-keyup="processTagInput($event,$parent.model)" type="text">
     <label  for="{{formFields}}">{{ $parent.label | translate}} <b style="font-size: 15px;font-weight: 600">({{'commaSeparated' | translate}})</b></label>
-    <ul class="tags">
-        <li data-ng-repeat="t in $parent.model">{{t}}</li>
+
+    <ul class="tags"  >
+        <li data-ng-repeat="(k,t) in $parent.model">{{t}} <span style="cursor: pointer"  data-ng-click="$parent.model.splice(k,1)" class="delete-tag"><img src="/images/icons-delete.svg"></span></li>
     </ul>
 </div>
 

@@ -8,9 +8,11 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
 
     $scope.loadItem=function () {
 
+        console.log($routeParams);
         axios.get(url,{headers:$rootScope.headers})
             .then(function (response) {
-                console.log(response);
+                $scope.item = response.data;
+                $scope.$apply();
             })
             .catch($rootScope.errorHandler);
 
@@ -21,6 +23,7 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
     {
         $scope.id= $routeParams.id;
         url+="/"+$routeParams.id;
+
 
         $scope.loadItem();
     }

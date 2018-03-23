@@ -15,6 +15,7 @@ app
             },
             controller: function ($scope) {
 
+
             },
 
             templateUrl:"/views/directives/frecuency-field-template.html"

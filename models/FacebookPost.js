@@ -15,7 +15,7 @@ var schema = new Schema({
     title: {type:String},
     description:{type:String},
     price:{type:String},
-    frecuency:[publishOption],
+    frecuency:publishOption,
     groups:[String],
     type:{type:String,enum:['sale'],required:true,default:'sale'},
     last_publish:{type:Date},

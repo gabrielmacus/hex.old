@@ -36,7 +36,8 @@
   "hours":"Horas",
   "frecuency.the.days":"Los",
   "frecuency.each.time":"Cada",
-
+  "frecuency":"Frecuencia",
+  "frecuency.selectUnit":"Minutos u horas",
   "facebook.groupsId":"Ids de los grupos",
 
   "gallery.plural":"Galerías",
@@ -46,5 +47,11 @@
   "path":"Ruta",
   "image":"Imagen",
   "actions":"Acciones",
-  "commaSeparated":"separados por coma"
+  "commaSeparated":"separados por coma",
+
+  "menu.persons":"Personas",
+  "person.plural":"Personas",
+  "surname":"Apellido",
+
+  "person":"Persona"
 }
