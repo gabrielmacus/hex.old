@@ -1,7 +1,7 @@
 app.controller('save-controller', function ($scope,$rootScope,$routeParams,$location) {
 
+    $rootScope.bodyClass ={"save":true};
     $scope.item = {};
-
     var url ="/api/".concat($routeParams.model);
     $scope.model=$routeParams.model;
 
@@ -32,7 +32,7 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
 
     $scope.saveItem=function () {
 
-
+        $scope.validationErrors = {};
         axios({
             url:url,
             method:($routeParams.id)?"PUT":"POST",
@@ -47,7 +47,26 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
 
 
             })
-            .catch($rootScope.errorHandler);
+            .catch(function(error){
+
+
+                if(error.response.data.type && error.response.data.type == 'ValidationError')
+                {
+
+                     $scope.validationErrors = error.response.data.details;
+
+
+                    $scope.$apply();
+
+                }
+                else
+                {
+                    $rootScope.errorHandler(error);
+                }
+
+
+
+            });
 
     }
 

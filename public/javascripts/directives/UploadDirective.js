@@ -30,7 +30,7 @@ app
                 });
 
             },
-            controller:function ($scope,$rootScope) {
+            controller:function ($scope,$rootScope,$location) {
 
                 $scope.model = [];
 
@@ -65,6 +65,8 @@ app
                             })
 
                             $scope.$apply();
+
+
 
                         })
                         .catch($rootScope.errorHandler);

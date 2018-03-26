@@ -22,6 +22,15 @@
    <!--
     <select placeholder="{{'frecuency.selectUnit' | translate}}" data-ng-model="model.time.unit"  data-ng-options="k as v | translate for (k,v) in timeOptions"></select>
 -->
+<!--
+    <span class="time-units"  >
+        <span class="time-unit" data-ng-repeat="(k,t) in timeOptions">
+                <label>{{t | translate}}</label>
+        <input   type="radio" data-ng-model="model.time.unit" value="{{k}}">
+        </span>
+
+    </span>-->
+
 
     <select   data-ng-model="model.time.unit">
         <option  disabled selected>{{'frecuency.selectUnit' | translate}}</option>

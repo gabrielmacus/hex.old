@@ -2,9 +2,13 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
-    $rootScope.errorHandler=function (e) {
+    $rootScope.errorHandler=function (error) {
         alert("Error");
-        console.log(e);
+
+        console.log(error.response);
+
+
+
     }
 
 
@@ -77,6 +81,7 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
                 return $scope.$eval("'facebook.post.type."+item.type+"' | translate ");
         }}]},
         gallery:{
+
             fields:['name'],
             actions:function () {
 
@@ -87,15 +92,7 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
         file:
             {
                 fields:[
-                    {label:'preview',field:'path',render:function (item) {
-
-                        //console.log($compile("<file-preview data-file='"+JSON.stringify(item)+"'></file-preview>")($scope));
-                        //console.log($compile("<field data-model='demo'></field>"))
-                        //<img src='"+item.path+"' >
-                        //console.log("<file-preview data-file='"+JSON.stringify(angular.copy(item))+"'></file-preview>");
-                          return "<file-preview data-file='"+JSON.stringify(angular.copy(item))+"'></file-preview>";
-
-                    }},
+                    {label:'preview',field:'path',file:true},
                     'filename',
                     'description'
                 ]

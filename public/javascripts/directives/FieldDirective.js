@@ -6,15 +6,19 @@ app
             scope: {
                 type:"@",
                 label:"@",
-                model:"="
+                model:"=",
+                validationErrors:"="
             },
 
             transclude: true,
             link: function (scope, element, attrs, ctrl,transclude) {
 
-
+                if(attrs.model)
+                {
+                    scope.modelName = attrs.model;
+                }
             },
-            controller: function ($scope,$element ,$transclude,$timeout) {
+            controller: function ($scope,$rootScope,$element ,$transclude,$timeout) {
               if(!$scope.type)
               {
                   $scope.type="text";

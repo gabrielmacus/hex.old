@@ -11,6 +11,10 @@ var RoleService = require('../services/RoleService');
 var passport = require('passport');
 var User = require('../models/User');
 var async = require('async');
+var UtilsService = require('../services/UtilsService');
+var ValidationService = require('../services/ValidationService');
+
+
 const ACCESS_LEVEL_ME = 1;
 const ACCESS_LEVEL_GROUP = 2;
 const ACCESS_LEVEL_ALL = 3;
@@ -164,7 +168,18 @@ router.get('/:model/:id',function (req,res,next) {
 
 })
 //Update one
-router.put('/:model/:id',function (req,res,next) {
+router.put('/:model/:id',function(req,res,next){
+
+    if(ValidationService[req.model.modelName])
+    {
+        ValidationService[req.model.modelName](req,res,next);
+    }
+    else
+    {
+        next();
+    }
+
+},function (req,res,next) {
 
 
     if(!ObjectID.isValid(req.id))
@@ -435,15 +450,26 @@ router.get('/:model', function(req, res, next) {
 
 });
 //Create one
-router.post('/:model',function(req, res, next){
+router.post('/:model',function(req,res,next){
+
+    if(ValidationService[req.model.modelName])
+    {
+        ValidationService[req.model.modelName](req,res,next);
+    }
+    else
+    {
+        next();
+    }
+
+},function(req, res, next){
 
     req.body.createdBy = req.user._id;
 
 
      req.model.create(req.body,function (err,result) {
          if(err)
-         {//TODO: handle errors
-             console.error(err);
+         {
+             return UtilsService.ErrorHandler(err,req,res,next);
          }
         res.json(result);
     });

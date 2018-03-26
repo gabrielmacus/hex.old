@@ -1,13 +1,11 @@
 
 
 
-<div  class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'">
-    <input id="{{$parent.label}}" data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
+<div   class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'">
+    <input   id="{{$parent.label}}" data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
     <label for="{{$parent.label}}">{{ $parent.label | translate}}</label>
-
+<!--$parent.validationErrors = []-->
 </div>
-
-
 <div   class="form-field" data-ng-if="type == 'textarea'">
     <textarea id="{{$parent.label}}"   data-ng-model="$parent.model"></textarea>
     <label  for="{{$parent.label}}">{{ $parent.label | translate}}</label>
@@ -23,7 +21,11 @@
 </div>
 
 
-<footer style="    padding-top: 0;" class="form-submit" data-ng-if="type == 'submit'">
+<footer  class="form-submit" data-ng-if="type == 'submit'">
 
     <input type="submit" class="button" value="{{ $parent.label | translate}}">
 </footer>
+<ul data-ng-if="validationErrors && validationErrors.length > 0" class="fade-static validation-errors">
+
+    <li class="validation-error" data-ng-repeat="(k,error) in validationErrors ">{{ 'validation.'+error.message | translate:error.data}}</li>
+</ul>

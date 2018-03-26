@@ -8,6 +8,7 @@ app
                 model:'=',
                 ref:'@'
             },
+            transclude:true,
 
             link: function (scope, element, attrs) {
 
@@ -24,6 +25,11 @@ app
                 if(!$scope.model)
                 {
                     $scope.model = [];
+                }
+                $scope.deleteAssociatedFile=function (k) {
+
+                    $scope.model.splice(k,1);
+
                 }
                 $scope.$watch('modelName',function () {
                     $scope.lightboxOptions={

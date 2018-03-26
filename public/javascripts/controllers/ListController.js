@@ -1,13 +1,14 @@
 app.controller('list-controller', function ($scope,$rootScope,$routeParams,$window,$location) {
-
+    $rootScope.bodyClass ={"list":true};
     var url ="/api/".concat($routeParams.model);
 
     $scope.model=$routeParams.model;
-    $scope.query = {page:1};
+    $scope.query = {page:1,sort:"-createdAt"};
     $scope.items = [];
 
     $scope.actions = ($rootScope.config[$routeParams.model].actions)?$rootScope.config[$routeParams.model].actions:$rootScope.defaultActions;
 
+    $scope.saveUrl = ($rootScope.config[$routeParams.model].saveUrl)?$rootScope.config[$routeParams.model].saveUrl:false;
 
     $scope.pagination = {};
     $scope.fields = $scope.config[$routeParams.model].fields;

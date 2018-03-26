@@ -19,7 +19,9 @@
     </thead>
     <tbody>
     <tr class="item" data-ng-repeat="i in items" data-ng-class="{active:i.selected}">
-        <td data-ng-repeat="f in fields">
+        <td data-ng-repeat="f in fields" data-ng-class="{'is-file':f.file}">
+
+            <file-preview data-ng-if="f.file"  data-file='i'></file-preview>
 
             <span data-ng-if="!f.render">{{i[f]}}</span>
             <!---

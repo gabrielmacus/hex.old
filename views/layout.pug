@@ -56,8 +56,12 @@ html
 
     script(src="javascripts/directives/AssociatedFileFieldDirective.js")
 
+    //services
 
-  body(class=(popup)?'popup':'',data-ng-app="app",data-ng-controller="main-controller")
+    script(src='javascripts/services/FileTypeService.js')
+
+
+  body(class=(popup)?'popup':'',data-ng-app="app",data-ng-controller="main-controller",data-ng-class="bodyClass")
 
     aside
         menu(data-source="'/api/user/menu'")
@@ -65,7 +69,7 @@ html
 
     main(data-ng-view,class="fade")
 
-    lightbox(data-options="confirmDialog",data-ng-if="confirmDialog.open")
+    lightbox(data-options="confirmDialog",data-ng-if="confirmDialog.open",class="fade-static")
       .options
         span.yes(data-ng-click="$parent.options.yes()") {{ 'yes' | translate}}
         span.no(data-ng-click="$parent.options.open = false") {{ 'no' | translate}}

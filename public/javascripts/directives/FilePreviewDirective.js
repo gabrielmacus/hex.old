@@ -12,26 +12,13 @@ app
 
 
             },
-            controller: function ($scope) {
+            controller: function ($scope,filetype) {
+
+
 
                 $scope.getType=function (mime) {
  
-                    switch (true)
-                    {
-                        case (mime.indexOf("image/")>-1):
-                            return 'image';
-
-                            break;
-
-                        case (mime.indexOf("video/")>-1):
-                            return 'video';
-                            break;
-
-                        default:
-                            return 'binary';
-                            break;
-                    }
-
+                    return filetype.get(mime);
 
                 }
 

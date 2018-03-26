@@ -15,6 +15,7 @@
                     {
                         $scope.listStatus='loading';
                     }
+
                     $scope.toggleDropdown=function (i) {
 
                         if(!$scope.dropdown)

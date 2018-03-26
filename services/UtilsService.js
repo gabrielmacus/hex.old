@@ -2,6 +2,7 @@
 const nodemailer = require('nodemailer');
 const tengine = require('pug');
 const path = require('path');
+
 module.exports=
     {
         
@@ -67,6 +68,28 @@ module.exports=
         });
 
 
+        },
+        ErrorHandler:function (err,req,res,next) {
+
+
+            if(err.name == 'ValidationError')
+            {
+
+                res.status(400).json({details:err.details,type:"ValidationError"});
+            }
+            else
+            {
+                res.status(500).json({});
+            }
+        },
+        get:function (key,object) {
+
+            if(!object || !object[key])
+            {
+                return "";
+            }
+
+            return object[key];
         }
         
     }

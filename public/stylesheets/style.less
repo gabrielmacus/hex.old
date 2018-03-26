@@ -15,12 +15,36 @@ html,body{
   height: 100%;
   width: 100%;
 }
+
+
+.fade-static {
+  transition: 180ms all;
+  -webkit-transition: 180ms all;
+}
+
+.fade-static.ng-enter {
+  opacity: 0;
+}
+
+.fade-static.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.fade-static.ng-leave {
+  opacity: 1;
+}
+
+.fade-static.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+
+
 .fade {
   position: absolute;
 
   opacity: 1;
 }
-
 
 .fade.ng-enter,
 .fade.ng-leave {
@@ -116,6 +140,7 @@ body > aside > menu a.active
 }
 main  top header
 {
+  transition:all 120ms;
   padding-top: @padding;
   padding-bottom: @padding;
   //padding: @padding;
@@ -303,7 +328,7 @@ lightbox .confirmation-dialog .options
   padding-left: @padding;
   padding-bottom: @padding;
 }
-lightbox .confirmation-dialog .options span
+lightbox .confirmation-dialog .options span, .link
 {
   cursor: pointer;
   text-decoration: underline;
@@ -319,9 +344,13 @@ lightbox .confirmation-dialog .options span:last-child
   padding: 20px;
   padding-right: 0;
   padding-left: 0;
+  padding-bottom: 0;
   position: relative;
 }
-
+form footer
+{
+  padding-top: (@padding * 2);
+}
 .form-field > label{
 
   width: 100%;//~"calc(100% - 40px)";
@@ -374,9 +403,9 @@ lightbox .confirmation-dialog .options span:last-child
   {    align-items: center;
     display: flex;
     margin-right: @padding2;
-    padding: @padding2;
+    padding: @padding2;/*
     padding-left: 0;
-    padding-right: 0;
+    padding-right: 0;*/
     margin-top: @padding2;
     background-color: #E0E0E0;
   }
@@ -452,7 +481,7 @@ frecuency-field .form-field [type='number']
 }*/
 .associated-files label{
   position: static;
-  margin-bottom: @padding;
+  margin-bottom: @padding2;
 }
 .associated-files .empty-associated-files
 {
@@ -530,11 +559,82 @@ lightbox .body
 {
   display: block;
   position: absolute;
-  top: @padding2;
-  right:  @padding2;
+  top: 15px;
+  right: 30px;
 }
 .close.show-on-popup img
 {
   width: 20px;
 }
+file-preview
+{
+  display: block;
+  position: relative;
+}
+file-preview figure
+{
+  position: relative;
+}
 
+.delete-preview
+{
+  position: absolute;
+  top: @padding2;
+  right: @padding2;
+}
+.delete-preview img
+{
+  width:20px;
+}
+
+body.save header
+{
+  padding-bottom: 0;
+}
+
+frecuency-field .time-units
+{
+  display: flex;
+  margin-top: @padding2;
+}
+
+frecuency-field .time-unit
+{
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+frecuency-field .time-unit input
+{
+  width:auto;
+  margin:auto;
+  margin-left: @padding2;
+}
+
+form .validation-errors
+{
+  display: flex;
+  position: absolute;
+}
+
+form .validation-errors .validation-error
+{
+  margin-top: 9px;
+  color: #E53935;
+  border-right: 1px solid;
+  padding-right: 10px;
+  font-weight: 600;
+}
+form .validation-errors .validation-error:last-child
+{
+  border-right: none;
+}
+form .validation-errors .validation-error:not(:first-child)
+{
+  margin-left: 10px;
+}
+
+td.is-file
+{
+  width: 30%;
+}
