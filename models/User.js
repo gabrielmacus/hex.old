@@ -64,4 +64,4 @@ schema.post('save', function(doc,next) {
     next();
 });
 
-module.exports= mongoose.model('User',schema);
+module.exports= db.model('User',schema);

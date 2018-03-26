@@ -38,7 +38,7 @@ opts.secretOrKey = process.env.APP_JWT_SECRET;
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
 
     //TODO: handle errors
-    mongoose.connect(process.env.DB_STRING);
+    //mongoose.connect(process.env.DB_STRING);
 
     User.findOne({_id: jwt_payload.data._id}).exec(function(err, user) {
 
@@ -82,12 +82,13 @@ passport.use(new FacebookTokenStrategy({
 //Routes
 router.post('/register',function (req,res,next) {
 
+    /*
     mongoose.connect(process.env.DB_STRING).catch(function (err) {
 
 
         //TODO: handle errors / handle db connection errors
         console.error(err);
-    });
+    });*/
 
     //Delete role to be set to default
     delete req.body.role;
@@ -115,10 +116,11 @@ router.post('/token',function (req,res,next) {
     var password  = (req.body.password)?req.body.password:"";
 
 
+    /*
     mongoose.connect(process.env.DB_STRING).catch(function (err) {
         //TODO: handle errors / handle db connection errors
         console.error(err);
-    });
+    });*/
 
 
 

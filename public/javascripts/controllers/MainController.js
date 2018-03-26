@@ -1,4 +1,5 @@
-app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,$cookies,$location) {
+app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,$cookies,$location,$compile) {
+
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
     $rootScope.errorHandler=function (e) {
@@ -34,6 +35,17 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
 
                 }
+            },
+            {
+                "class":{"show-on-popup":true,"select":true},"text":"select","action":function (i) {
+
+                i.selected = true;
+            }
+            },
+            {
+                "class":{"show-on-popup":true,"unselect":true},"text":"unselect","action":function (i) {
+                i.selected = false;
+            }
             }
         ];
     $rootScope.defaultActions = function (i) {
@@ -58,7 +70,7 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
 
     $rootScope.config={
-        product:{fields:["_id","title"]},
+        product:{fields:["title"]},
         user:{fields:['name']},
         "facebook-post":{fields:['title','description','price',{label:'type',field:'type',render:function (item) {
 
@@ -75,12 +87,17 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
         file:
             {
                 fields:[
-                    {label:'image',field:'path',render:function (item) {
+                    {label:'preview',field:'path',render:function (item) {
 
-                        return "<img src='"+item.path+"' >";
+                        //console.log($compile("<file-preview data-file='"+JSON.stringify(item)+"'></file-preview>")($scope));
+                        //console.log($compile("<field data-model='demo'></field>"))
+                        //<img src='"+item.path+"' >
+                        //console.log("<file-preview data-file='"+JSON.stringify(angular.copy(item))+"'></file-preview>");
+                          return "<file-preview data-file='"+JSON.stringify(angular.copy(item))+"'></file-preview>";
 
                     }},
-                    'filename'
+                    'filename',
+                    'description'
                 ]
             },
         person:

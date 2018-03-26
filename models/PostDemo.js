@@ -12,4 +12,4 @@ var schema = new Schema({
     timestamps: true
 });
 
-module.exports= mongoose.model('PostDemo',schema);
+module.exports= db.model('PostDemo',schema);

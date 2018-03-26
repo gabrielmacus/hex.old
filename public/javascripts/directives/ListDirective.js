@@ -10,10 +10,6 @@
                     listStatus:"="
                 },
 
-                link: function (scope, element, attrs) {
-
-
-                },
                 controller: function ($scope) {
                     if(!$scope.listStatus)
                     {

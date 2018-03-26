@@ -1,4 +1,4 @@
-app.controller('list-controller', function ($scope,$rootScope,$routeParams,$location) {
+app.controller('list-controller', function ($scope,$rootScope,$routeParams,$window,$location) {
 
     var url ="/api/".concat($routeParams.model);
 
@@ -59,6 +59,18 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$loca
 
     }
 
+    $scope.acceptSelected=function () {
+
+        var selected =$scope.items.filter(function (t) { return t.selected; })
+        var qs = $location.search();
+
+        if(qs.model)
+        {
+
+            $window.parent.postMessage({items:selected,model:qs.model},'*');
+        }
+
+    }
     $scope.loadList();
 
 });

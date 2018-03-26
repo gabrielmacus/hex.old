@@ -55,7 +55,18 @@
   "surname":"Apellido",
   "type":"Tipo",
 
+  "person":"Persona",
 
-
-  "person":"Persona"
+  "fileName":"Nombre del archivo",
+  "fileDescription":"Descripción",
+  "preview":"Vista previa",
+  "associated.addFromGallery":"Galeria",
+  "associated.uploadFromDevice":"Dispositivo",
+  "associated.uploadFrom":"Agregar desde...",
+  "associated.empty":"No hay archivos asociados",
+  "images":"Imágenes",
+  "select":"Seleccionar",
+  "unselect":"Deseleccionar",
+  "accept":"Aceptar",
+  "text":"Texto"
 }

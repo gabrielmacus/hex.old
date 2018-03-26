@@ -25,4 +25,4 @@ var schema = new Schema({
     timestamps: true
 });
 
-module.exports= mongoose.model('FacebookPost',schema);
+module.exports= db.model('FacebookPost',schema);

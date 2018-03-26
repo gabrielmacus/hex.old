@@ -12,6 +12,8 @@ var lessMiddleware = require('less-middleware');
 var dotenv = require('dotenv').config({path:path.join(__dirname,"env/"+process.env.NODE_ENV+".env")});
 var passport = require('passport');
 var i18n = require("i18n");
+var mongoose = require('mongoose');
+global.db = (global.db ? global.db : mongoose.createConnection(process.env.DB_STRING));
 
 
 //Routes
@@ -47,7 +49,7 @@ app.use(passport.initialize());
 app.use('/', index);
 app.use('/api', rest);
 app.use('/auth',auth);
-app.use('/development',development);
+app.use('/dev',development);
 
 
 
@@ -81,6 +83,7 @@ cron.schedule('* * * * *', function(){
    FacebookPostService.cron();
 
 });
+
 
 
 module.exports = app;

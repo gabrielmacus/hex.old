@@ -8,4 +8,4 @@ var schema = new Schema({
     timestamps: true
 });
 
-module.exports= mongoose.model('Gallery',schema);
+module.exports= db.model('Gallery',schema);

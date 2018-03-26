@@ -4,7 +4,7 @@ var ModelService = require('../services/ModelService');
 var ObjectID = require('mongodb').ObjectID;
 //https://www.npmjs.com/package/api-query-params
 var apq  = require('api-query-params');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 var StringService = require('../services/StringService');
 require('mongoose-pagination');
 var RoleService = require('../services/RoleService');

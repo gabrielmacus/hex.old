@@ -44,7 +44,7 @@ html
 
     script(src="javascripts/directives/TopDirective.js")
 
-    script(src="javascripts/directives/ConfirmDirective.js")
+    script(src="javascripts/directives/LightboxDirective.js")
 
     script(src="javascripts/directives/FieldDirective.js")
 
@@ -52,9 +52,12 @@ html
 
     script(src="javascripts/directives/UploadDirective.js")
 
+    script(src="javascripts/directives/FilePreviewDirective.js")
+
+    script(src="javascripts/directives/AssociatedFileFieldDirective.js")
 
 
-  body(data-ng-app="app",data-ng-controller="main-controller")
+  body(class=(popup)?'popup':'',data-ng-app="app",data-ng-controller="main-controller")
 
     aside
         menu(data-source="'/api/user/menu'")
@@ -62,4 +65,7 @@ html
 
     main(data-ng-view,class="fade")
 
-    confirm(data-options="confirmDialog")
+    lightbox(data-options="confirmDialog",data-ng-if="confirmDialog.open")
+      .options
+        span.yes(data-ng-click="$parent.options.yes()") {{ 'yes' | translate}}
+        span.no(data-ng-click="$parent.options.open = false") {{ 'no' | translate}}

@@ -14,4 +14,4 @@ var schema = new Schema({
     timestamps: true
 });
 
-module.exports= mongoose.model('Assignment',schema);
+module.exports= db.model('Assignment',schema);

@@ -6,6 +6,7 @@ var schema = new Schema({
     contentType : {type:String,required:true},
     size:{type:Number,required:true},
     path:{type:String},
+    description:{type:String},
     gallery:{type:Schema.Types.ObjectId,ref:'Gallery'}
 }, {
     timestamps: true
@@ -41,4 +42,4 @@ schema.pre('remove',function(next) {
 
     })
 });
-module.exports= mongoose.model('File',schema);
+module.exports= db.model('File',schema);

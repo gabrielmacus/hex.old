@@ -1,3 +1,5 @@
+
+const app = require('../app.js');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiHttp = require('chai-http');
@@ -6,7 +8,6 @@ const User = require('../models/User');
 
 chai.use(chaiHttp);
 
-const app = require('../app.js');
 const mongoose  =require('mongoose');
 
 
@@ -14,12 +15,19 @@ describe('Auth test', function(){
 
     before(function (done) {
 
+       db.dropDatabase();
+        done();
+        /*
         mongoose.connect(process.env.DB_STRING,function () {
 
             mongoose.connection.db.dropDatabase();
             done();
-        });
+        });*/
 
+    })
+    
+    after(function () {
+        db.close();
     })
 
     it('Tries to GET user endpoint without logging in',function(done) {
@@ -92,7 +100,7 @@ describe('Auth test', function(){
                 // Now let's check our response
                 expect(response).to.have.status(200);
 
-                mongoose.connect(process.env.DB_STRING);
+                //mongoose.connect(process.env.DB_STRING);
 
                 User.update({_id:response.body._id},{'$set':{status:'active'}},function (err,result) {
 

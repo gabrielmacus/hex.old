@@ -2,7 +2,7 @@
     <p>{{ 'list.loading' | translate }}</p>
 </div>
 
-<table class="list" data-ng-if="listStatus == 'loaded' && (items && items.length > 0)">
+<table data-ng-init="selectedItems=[]" class="list" data-ng-if="listStatus == 'loaded' && (items && items.length > 0)">
     <thead>
     <tr>
         <th data-ng-repeat="f in fields">
@@ -18,10 +18,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="item" data-ng-repeat="i in items">
+    <tr class="item" data-ng-repeat="i in items" data-ng-class="{active:i.selected}">
         <td data-ng-repeat="f in fields">
 
             <span data-ng-if="!f.render">{{i[f]}}</span>
+            <!---
+            -->
             <span data-ng-if="f.render" data-ng-bind-html="f.render(i)"></span>
 
         </td>
@@ -30,11 +32,12 @@
             <div class="actions-wrapper">
                 <a class="button open-actions" data-ng-class="{opened:dropdown[i._id]}" data-ng-click="toggleDropdown(i)" >{{'actions' | translate}} <img class="dropdown-icon" src="/images/drop-down-arrow.svg"></a>
                 <ul class="fade actions" data-ng-if="dropdown[i._id]">
-                    <li data-ng-repeat="a in getActions(i)" data-ng-click="a.action(i)">{{a.text | translate}}</li>
+                    <li  data-ng-class="a.class"  data-ng-repeat="a in getActions(i)" data-ng-click="a.action(i);dropdown[i._id]=false">{{a.text | translate}}</li>
                 </ul>
             </div>
 
         </td>
+
     </tr>
     </tbody>
 </table>

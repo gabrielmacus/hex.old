@@ -1,0 +1,31 @@
+<div class="associated-files">
+    <field data-type="custom" data-label="images">
+
+
+        <p class="empty-associated-files" data-ng-if="!model || model.length == 0">{{'associated.empty' | translate}}</p>
+
+        <ul data-ng-if="model && model.length > 0" class="associated-files-list">
+            <li data-ng-repeat="item in model">
+                <file-preview data-file="item[ref]">
+                    <field data-label="text" data-model="item.text"></field>
+                </file-preview>
+                <!-- transclude -->
+            </li>
+        </ul>
+
+        <span class="upload-from">{{'associated.uploadFrom' | translate}}</span>
+
+        <a class="button" data-ng-click="lightboxOptions.open=true">{{'associated.addFromGallery' | translate}}</a>
+        <a class="button">{{'associated.uploadFromDevice' | translate}}</a>
+
+
+
+        <lightbox   data-options="lightboxOptions" class="associated-file-lightbox " data-ng-if="lightboxOptions.open">
+            <iframe data-ng-src="{{lightboxOptions.src}}"></iframe>
+
+            <span data-ng-click="lightboxOptions.open = false" class="close show-on-popup"><img src="/images/icons-delete.svg"></span>
+        </lightbox>
+
+
+    </field>
+</div>

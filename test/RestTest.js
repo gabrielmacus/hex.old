@@ -1,3 +1,5 @@
+
+const app = require('../app.js');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiHttp = require('chai-http');
@@ -7,8 +9,7 @@ const Person = require('../models/Person');
 chai.use(chaiHttp);
 const async = require('async');
 
-const app = require('../app.js');
-const mongoose  =require('mongoose');
+//const mongoose  =require('mongoose');
 
 
 process.env.ROLES_PATH = path.join(require('app-root-dir').get(),"test/roles-rest.json");
@@ -30,12 +31,15 @@ describe('REST test', function() {
 
         async.series([
             function (callback) {
-                mongoose.connect(process.env.DB_STRING, function () {
+
+                db.dropDatabase();
+                callback();
+            /*mongoose.connect(process.env.DB_STRING, function () {
 
                     mongoose.connection.db.dropDatabase();
                     callback();
 
-                });
+                });*/
 
             },
             function (callback) {
@@ -148,7 +152,9 @@ describe('REST test', function() {
 
 
     });
-
+    after(function () {
+        db.close()
+    })
     it("POST a person", function (done) {
 
         var person = {
