@@ -4,6 +4,15 @@ app.controller('upload-controller', function ($scope,$rootScope,$routeParams,$lo
 
     $scope.files=[];
 
+    $scope.loadCurrentGallery=function () {
+        axios.get('/api/gallery/'+$scope.gallery,{headers:$rootScope.headers})
+            .then(function (response) {
+                $scope.galleryName = response.data.name;
+            })
+            .catch($rootScope.errorHandler);
+
+    }
+    $scope.loadCurrentGallery();
     $scope.saveFiles= function (files) {
 
 

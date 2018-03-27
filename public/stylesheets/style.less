@@ -1,15 +1,22 @@
+
+@errorColor:#E53935;
 @import "default-theme";
 
 @import url('../style.css');
 
-
-
-
-body > *{
-  font-family: @mainFont;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+body *{
+  font-family: @mainFont!important;
   color: @mainTypoColor;
 
 }
+
+
 
 html,body{
   height: 100%;
@@ -103,6 +110,7 @@ paginator ol  .paginator-prev
 
 body > aside
 {
+  transition: all 200ms;
   width: 30%;
   float: left;
   position: fixed;
@@ -349,7 +357,8 @@ lightbox .confirmation-dialog .options span:last-child
 }
 form footer
 {
-  padding-top: (@padding * 2);
+  padding-top:@padding;
+  //padding-top: (@padding * 2);
 }
 .form-field > label{
 
@@ -362,6 +371,17 @@ form footer
   color: @mainColor;
   font-size: 20px;
   font-weight: 300;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  border: none;
+  background: @buttonColor;
+  color: white;
+  padding: @padding2;
+}
+input[type=file]::-webkit-file-upload-button:hover
+{
+  background: @buttonHoverColor;
 }
 
 
@@ -466,10 +486,30 @@ frecuency-field .form-field [type='number']
   position: relative;
 }
 .file-preview > *
-{
-  max-width: 100%;
+{width: 100%;
+  height: 300px;
+  object-fit: scale-down;
+  background: white;
 }
 
+.files-preview{
+  float: left;
+  width: 100%;
+  margin-bottom: @padding;
+}
+.files-preview li
+{
+  float: left;
+  width: 49%;
+  /* clear: both; */
+  margin-right: 1%;
+  margin-top: @padding;
+}
+.files-preview li:nth-child(2n)
+{
+
+  margin-right: 0;
+}
 
 .row
 {
@@ -517,6 +557,7 @@ frecuency-field .form-field [type='number']
 {
   display: none;
 }
+
 body.popup aside
 {
 display: none;
@@ -624,7 +665,7 @@ form .validation-errors
 form .validation-errors .validation-error
 {
   margin-top: 9px;
-  color: #E53935;
+  color: @errorColor;
   border-right: 1px solid;
   padding-right: 10px;
   font-weight: 600;
@@ -641,4 +682,260 @@ form .validation-errors .validation-error:not(:first-child)
 td.is-file
 {
   width: 30%;
+}
+
+.border-menu {
+  position: relative;
+  padding-left: 1.25em;
+}
+.border-menu:before {
+  content: "";
+  position: absolute;
+  top: 0.25em;
+  left: 0;
+  width: 1em;
+  height: 0.125em;
+  border-top: 0.375em double #000;
+  border-bottom: 0.125em solid #000;
+}
+
+.menu-mobile
+{
+  display: none;
+}
+
+body.login top header
+{
+  font-weight: 300;
+  padding-bottom: 0;
+}
+
+body.login
+{
+  background: url(https://images5.alphacoders.com/473/473154.jpg);
+  background-size: cover;
+}
+
+body.login main
+{
+  width: 30%;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+}
+
+body.login main
+{    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  padding-left: @padding *2 ;
+  padding-right: @padding *2;
+}
+body.login:after{
+  background: @mainColor;
+  position: absolute;
+  content: '';
+  width: 70%;
+  right: 0;
+  height: 100%;
+  opacity: 0.6;
+}
+.empty-upload
+{
+  font-size: 25px;
+  padding-top: 25px;
+}
+
+input[type='file']
+{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@mobileMenuHeight:50px;
+@media all and (max-width: 1024px) {
+
+  .files-preview li
+  {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  body.file-list tbody td figure
+  {
+    left: -@padding;
+
+    width:calc(~"100% +" (@padding * 2));
+  }
+
+  body.login .login-error
+  {
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  body.login
+  {
+    display: flex;
+    align-items: center;
+  }
+
+  body.login main
+  {
+    padding-right: @padding;
+    padding-left: @padding;
+    width: 60%;
+    margin: auto;
+    /* height: 300px; */
+    min-height: inherit;
+    z-index: 1;
+    position: static;
+
+  }
+  body.login:after
+  {
+    width: 100%;
+  }
+
+  .menu-mobile
+  {
+    display: block;
+  }
+  main
+  {
+    margin-top: @mobileMenuHeight;
+  }
+
+  body > main
+  {
+    width: 100%;
+    left: 0;
+  }
+
+  aside.open
+  {
+    left: 0%;
+  }
+
+  body > aside
+  {
+    width: 65%;
+    left: -65%;
+  }
+
+  .menu-mobile
+  { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    position: absolute;
+    left: 100%;
+    width: 200%;
+    display: flex;
+    align-items: center;
+    padding-left: @padding;
+    height: @mobileMenuHeight;
+    background: @mainColor;
+  }
+  .menu-mobile img
+  {
+    position: relative;
+    padding: 18px;
+    left: -18px;
+    height: 100%;
+    display: none;
+  }
+
+  aside.open img.close
+  {
+    display: block;
+  }
+  aside:not(.open) img.open
+  {
+    display: block;
+  }
+
+
+  table tbody
+  {
+    display: flex;
+    flex-wrap: wrap
+  }
+  table thead
+  {
+    display: none;
+  }
+  table tbody td:first-child
+  {
+    margin-top: @padding;
+  }
+  table tbody td:last-child
+  {
+    margin-bottom: @padding;
+  }
+
+  table tbody td
+  {
+
+    padding-left: @padding;
+    padding-right: @padding;
+    width: 100%!important;
+    float: left;
+    display: block;
+  }
+  .actions-cell .button
+  {
+    width: 100%;
+    display: block;
+  }
+  .actions-cell .button img
+  {
+    float: right;
+  }
+  .actions-cell .actions
+  {
+    width: 100%;
+  }
+  table tr
+  {
+    width: 49%;
+    margin-right: 2%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    float: left;
+    margin-bottom: @padding;
+  }
+  table tr:nth-child(2n)
+  {
+    margin-right: 0;
+  }
+
+  table
+  {
+    box-shadow: none!important;
+  }
+  table tbody td:not(.actions-cell):before
+  {
+    font-weight: 600;
+    color: @mainColor;
+    display: block;
+    content: attr(data-title);
+    width: 100%;
+    margin-top: @padding2;
+    margin-bottom: @padding2;
+  }
+
+}
+
+@media all and (max-width: 768px) {
+
+  body.login main {
+    width: 90%;
+  }
+  table tr
+  {
+    width: 100%;
+    margin-right: 0;
+  }
+
+
+}
+.login-error p
+{
+  color: @errorColor;
+  font-weight: 600;
 }

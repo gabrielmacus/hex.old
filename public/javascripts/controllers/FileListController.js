@@ -1,11 +1,11 @@
 app.controller('file-list-controller', function ($scope,$rootScope,$controller,$routeParams,$location) {
-    $rootScope.bodyClass ={"file-list":true,"list":true};
+
     $routeParams.model="file";
 
     $scope.saveUrl='#!/gallery/'+$routeParams.id+'/upload';
     $controller('list-controller',{$scope:$scope,$routeParams:$routeParams});
 
-
+    $rootScope.bodyClass ={"file-list":true,"list":true};
     $scope.query.gallery = $routeParams.id;
     $scope.currentGallery ='...';
     $scope.loadCurrentGallery=function () {

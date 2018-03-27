@@ -81,5 +81,19 @@
   "or":"o",
   "facebook-post":"Post de facebook",
 
-  "validation.lengthBetween":"Debe tener entre {{min}} y {{max}} caracteres"
+  "validation.lengthBetween":"Debe tener entre {{min}} y {{max}} caracteres",
+
+  "assignmentPlace":"Sala",
+  "person/s":"Persona/s",
+  "date":"Fecha",
+  "assignment":"Asignación",
+  "assignment.plural":"Asignaciones",
+  "assignment-type.plural":"Tipos de asignaciones",
+  "assignment-type":"Tipo de asignación",
+  "logout":"Salir",
+  "login.title":"Ingreso al panel",
+  "login.incorrectData":"Datos incorrectos. Verifique usuario y contraseña",
+  "login.unknownError":"Error desconocido. Inténtelo en unos instantes",
+  "upload.noFiles":"No hay archivos para subir...",
+  "upload.title":"Subiendo a la galería {{gallery}}"
 }

@@ -16,6 +16,10 @@
       {
         "text":"menu.persons",
         "href":"#!/person"
+      },
+      {
+        "text":"menu.galleries",
+        "href":"#!/gallery"
       }
     ]
 }

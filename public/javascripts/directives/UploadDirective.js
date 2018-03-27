@@ -16,9 +16,10 @@ app
                 var fileUploadElement = element[0].querySelector("[type='file']");
 
 
-
-                var data = new FormData();
                 fileUploadElement.addEventListener('change',function (e) {
+
+                    var data = new FormData();
+
                     var files = fileUploadElement.files;
 
                     for(var i =0 ;i<files.length;i++)

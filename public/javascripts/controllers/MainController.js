@@ -12,7 +12,6 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
     }
 
 
-
     var defaultActions=
         [
             {
@@ -106,7 +105,7 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
              fields:['title',{field:'date',render:function (i) {
                  return new Date(i.date).toLocaleDateString()
-             }},{field:'persons',label:'persons',render:function (i) {
+             }},{field:'persons',label:'person/s',render:function (i) {
 
                  var persons = i.persons.map(function (t) { return t.name+" "+t.surname });
 
@@ -116,7 +115,10 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
                  return i.type.name;
 
-             }}]
+             }}
+             ,
+                'place'
+             ]
             },
         "assignment-type":
             {

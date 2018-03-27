@@ -10,7 +10,7 @@ var schema = new Schema({
     type:{ref:'AssignmentType',type:Schema.Types.ObjectId},
     persons:[{ref:'Person',type:Schema.Types.ObjectId}],
     createdBy:{type:Schema.Types.ObjectId,ref:'User',required:true},
-    place:{type:Number,required:true},
+    place:{type:Number,required:true,default:1},
 
 
 }, {

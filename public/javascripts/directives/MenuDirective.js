@@ -6,7 +6,13 @@ app
             scope: {
                 source:"="
             } ,
-            controller: function ($scope,$rootScope,$location,$routeParams) {
+            controller: function ($scope,$rootScope,$location,$cookies,$routeParams) {
+                $scope.logout=function () {
+
+                    $cookies.remove('access_token');
+                    window.location.href="/login"
+
+                }
 
                 $scope.setActive=function(){
 
@@ -18,7 +24,6 @@ app
                     });
                     if(filter && filter.length)
                     {
-                        console.log(filter);
 
                         filter[0].active=true;
 

@@ -1,13 +1,14 @@
 <form data-ng-submit="login()">
-    <div class="form-field">
-        <label>{{ 'username' | translate }}</label>
-        <input data-ng-model="user.username">
-    </div>
-    <div class="form-field">
-        <label>{{ 'password' | translate }}</label>
-        <input type="password" data-ng-model="user.password">
-    </div>
-    <div class="form-button">
-        <button type="submit">{{ 'login' | translate}}</button>
+
+    <top data-title="'login.title'"></top>
+
+    <field data-label="username" data-model="user.username"></field>
+
+    <field data-label="password" data-type="password" data-model="user.password"></field>
+
+    <field data-type="submit" data-label="login"></field>
+
+    <div class="login-error fade-static" data-ng-if="errorMsg && errorMsg != ''">
+        <p>{{errorMsg | translate}}</p>
     </div>
 </form>

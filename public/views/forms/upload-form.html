@@ -1,18 +1,28 @@
+    <top data-title="'upload.title'" data-title-object="{'gallery':galleryName}">
+    </top>
+
 
     <upload-field  data-model="files" data-gallery="gallery"   data-upload-url="/api/file/upload" data-save-url="/api/file/"></upload-field>
 
+    <p  data-ng-if="!files || files.length ==0" class="empty-upload">
+        {{'upload.noFiles' | translate}}
+    </p>
     <!--
     [{"path":"/.tmp/upload_1d09e9ed8ab486dfe1de3bcbb5c94c24.jpg","size":132937,"contentType":"image/jpeg","filename":"04fc293b-0688-459b-82f8-5ea07c3d953d.jpg","gallery":"5ab1bb822456de0cd8830ac3"}]-->
-    <ul class="files-preview">
-        <li data-ng-repeat='file in files'>
-            <file-preview data-file="file"></file-preview>
-            <field data-model="file.filename" data-label="fileName"></field>
-            <field data-model="file.description" data-type="textarea" data-label="fileDescription"></field>
+    <ul data-ng-if="files.length > 0" class="files-preview">
+        <li data-ng-repeat='(k,file) in files'>
+            <file-preview data-file="file">
+
+                <field data-model="file.filename" data-label="fileName"></field>
+                <field data-model="file.description" data-type="textarea" data-label="fileDescription"></field>
+
+                <span  data-ng-click="files.splice(k,1)" class="delete-preview"><img src="/images/trash.svg"></span>
+            </file-preview>
 
         </li>
     </ul>
 
-    <field data-type="submit" data-label="submit"></field>
+    <field data-ng-show="files.length > 0" data-type="submit" data-label="submit"></field>
 
    <!--
     <field data-type="custom">

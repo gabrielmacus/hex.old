@@ -41,8 +41,8 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$wind
                     $scope.items = response.data.docs;
                     $scope.pagination = response.data.pagination;
                     $scope.status='loaded';
-                    $scope.$apply();
                 }
+                $scope.$apply();
 
 
             })
@@ -56,7 +56,7 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$wind
             .then(function (response) {
 
                 $scope.loadList();
-
+                $scope.$apply();
             })
             .catch($rootScope.errorHandler);
 

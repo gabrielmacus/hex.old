@@ -72,7 +72,10 @@ module.exports=
 
 
             });
+            c.on('error',function (err) {
 
+                return callback(err);
+            })
 
             c.connect({
                 host:process.env.FTP_HOST,
