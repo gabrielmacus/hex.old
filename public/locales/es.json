@@ -5,10 +5,16 @@
   "list.empty":"No hay elementos para mostrar",
   "list.loading":"Cargando elementos",
   "list.newItem":"Nuevo",
+
+
   "menu.products":"Productos",
   "menu.home":"Inicio",
   "menu.facebookPosts":"Posts de facebook",
   "menu.galleries":"Galerías",
+  "menu.assignments":"Asignaciones",
+  "menu.assignmentsTypes":"Tipos de asignaciones",
+
+
   "product.plural":"Productos",
   "facebook-post.plural":"Posts de facebook",
   "fileGallery.plural":"Archivos de la galería {{galleryName}}",

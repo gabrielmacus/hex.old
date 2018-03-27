@@ -22,6 +22,11 @@ html
 
     script(src="javascripts/init.js")
 
+    //services
+
+    script(src='javascripts/services/FileTypeService.js')
+
+
     // controllers
 
     script(src="javascripts/controllers/MainController.js")
@@ -33,6 +38,8 @@ html
     script(src="javascripts/controllers/UploadController.js")
 
     script(src="javascripts/controllers/FileListController.js")
+
+    script(src="javascripts/controllers/ApiController.js")
 
     // directives
 
@@ -56,9 +63,7 @@ html
 
     script(src="javascripts/directives/AssociatedFileFieldDirective.js")
 
-    //services
 
-    script(src='javascripts/services/FileTypeService.js')
 
 
   body(class=(popup)?'popup':'',data-ng-app="app",data-ng-controller="main-controller",data-ng-class="bodyClass")

@@ -5,16 +5,13 @@
            "href":"#!/"
         },
         {
-            "text":"menu.products",
-            "href":"#!/product"
-        },
+            "text":"menu.assignments",
+            "href":"#!/assignment"
+        }
+    ,
       {
-        "text":"menu.galleries",
-        "href":"#!/gallery"
-      },
-      {
-        "text":"menu.facebookPosts",
-        "href":"#!/facebook-post"
+        "text":"menu.assignmentsTypes",
+        "href":"#!/assignment-type"
       },
       {
         "text":"menu.persons",

@@ -79,6 +79,17 @@ router.all(['/:model' ,'/:model/:id([a-fA-F\\d]{24})','/:model/:id([a-fA-F\\d]{2
 });
 
 
+//Read all
+router.get('/:model/all',function (req,res,next) {
+
+    req.model.find({}).exec(function (err,results) {
+
+        res.json(results);
+
+    });
+
+});
+
 //Read one
 router.get('/:model/:id',function (req,res,next) {
 
@@ -179,7 +190,8 @@ router.put('/:model/:id',function(req,res,next){
         next();
     }
 
-},function (req,res,next) {
+},
+    function (req,res,next) {
 
 
     if(!ObjectID.isValid(req.id))
@@ -461,7 +473,8 @@ router.post('/:model',function(req,res,next){
         next();
     }
 
-},function(req, res, next){
+},
+    function(req, res, next){
 
     req.body.createdBy = req.user._id;
 

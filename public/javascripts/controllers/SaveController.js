@@ -1,9 +1,11 @@
-app.controller('save-controller', function ($scope,$rootScope,$routeParams,$location) {
+app.controller('save-controller', function ($scope,$rootScope,$routeParams,$location,$controller) {
 
     $rootScope.bodyClass ={"save":true};
     $scope.item = {};
     var url ="/api/".concat($routeParams.model);
     $scope.model=$routeParams.model;
+
+    $controller('api-controller',{$scope:$scope,$routeParams:$routeParams});
 
 
     $scope.loadItem=function () {
@@ -53,7 +55,7 @@ app.controller('save-controller', function ($scope,$rootScope,$routeParams,$loca
                 if(error.response.data.type && error.response.data.type == 'ValidationError')
                 {
 
-                     $scope.validationErrors = error.response.data.details;
+                    $scope.validationErrors = error.response.data.details;
 
 
                     $scope.$apply();

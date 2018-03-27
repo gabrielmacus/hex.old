@@ -2,6 +2,8 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$wind
     $rootScope.bodyClass ={"list":true};
     var url ="/api/".concat($routeParams.model);
 
+
+
     $scope.model=$routeParams.model;
     $scope.query = {page:1,sort:"-createdAt"};
     $scope.items = [];

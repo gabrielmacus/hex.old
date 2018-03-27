@@ -388,7 +388,11 @@ form footer
   background: transparent;
 }
 
-  .form-field > input:focus +  label,.form-field input.ng-not-empty + label,.form-field > textarea:focus +  label,.form-field textarea.ng-not-empty + label
+.always-focused + label
+{
+  top:25px;
+}
+.form-field select:hover + label,.form-field select + label:hover ,.form-field select.ng-not-empty + label,.form-field > input:focus +  label,.form-field input.ng-not-empty + label,.form-field > textarea:focus +  label,.form-field textarea.ng-not-empty + label
 {
   font-size: 15px;
     font-weight: 600;

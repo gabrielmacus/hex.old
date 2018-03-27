@@ -1,11 +1,14 @@
 
 
 
-<div   class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'">
+<div   class="form-field" data-ng-if="type != 'submit' && type != 'textarea' && type != 'tags'" >
     <input   id="{{$parent.label}}" data-ng-if="$parent.type != 'custom'"  data-ng-model="$parent.$parent.model" type="{{$parent.type}}">
     <label for="{{$parent.label}}">{{ $parent.label | translate}}</label>
 <!--$parent.validationErrors = []-->
 </div>
+
+
+
 <div   class="form-field" data-ng-if="type == 'textarea'">
     <textarea id="{{$parent.label}}"   data-ng-model="$parent.model"></textarea>
     <label  for="{{$parent.label}}">{{ $parent.label | translate}}</label>

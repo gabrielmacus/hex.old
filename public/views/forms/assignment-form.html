@@ -1,0 +1,26 @@
+<field data-model="item.title" data-label="title"></field>
+
+<!--
+<field data-type="custom" data-label="date" >
+
+
+    <input data-ng-value="item.date | date: 'yyyy-MM-dd'" class="always-focused" data-ng-model="item.date" type="date">
+
+</field>-->
+
+<field data-type="custom"  data-label="type">
+
+    <select   data-ng-init="load('/api/assignment-type/all','types')" data-ng-model="item.type" data-ng-options="item._id as item.name for item  in types"   ></select>
+
+</field>
+
+<field data-type="custom"  data-label="person/s">
+
+    <select multiple class="always-focused"    data-ng-init="load('/api/person/all','persons')" data-ng-model="item.persons" data-ng-options="item._id as item.name+' '+item.surname for item in persons"   ></select>
+
+</field>
+
+<field data-type="number" data-model="item.place" data-label="assignmentPlace"></field>
+
+
+<field   data-label="submit" data-type="submit"></field>

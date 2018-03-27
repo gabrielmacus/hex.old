@@ -7,7 +7,8 @@ app
                 type:"@",
                 label:"@",
                 model:"=",
-                validationErrors:"="
+                validationErrors:"=",
+                options:"@"
             },
 
             transclude: true,
@@ -34,7 +35,7 @@ app
 
                         for(var i = 0;i<transcludeElements.length;i++)
                         {
-                            $element.find('div')[0].append(transcludeElements[i]);
+                            $element.find('div')[0].prepend(transcludeElements[i]);
                         }
 
                       });

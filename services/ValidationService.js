@@ -14,6 +14,24 @@ module.exports=
 
             UtilsService.ErrorHandler(error,req,res,next);
         },
+        AssignmentType:function (req,res,next) {
+
+            var errors = {};
+
+            var length = {min:3,max:100};
+            var lengthMessage = {message:'lengthBetween',data:length}
+
+
+            if(!validator.isLength(UtilsService.get('name',req.body),length))
+            {
+                errors['name'] = [];
+                errors['name'].push(lengthMessage);
+            }
+
+
+
+            module.exports.process(errors,req,res,next);
+        },
         Person:function (req,res,next) {
 
             var errors = {};
@@ -32,8 +50,6 @@ module.exports=
             {   errors['surname'] = [];
                 errors['surname'].push(lengthMessage);
             }
-
-
 
 
             module.exports.process(errors,req,res,next);

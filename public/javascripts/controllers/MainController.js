@@ -100,6 +100,27 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
         person:
             {
                 fields:['name','surname']
+            },
+        assignment:
+            {
+
+             fields:['title',{field:'date',render:function (i) {
+                 return new Date(i.date).toLocaleDateString()
+             }},{field:'persons',label:'persons',render:function (i) {
+
+                 var persons = i.persons.map(function (t) { return t.name+" "+t.surname });
+
+                 return persons.join(", ");
+
+             }},{field:'type',label:'type',render:function (i) {
+
+                 return i.type.name;
+
+             }}]
+            },
+        "assignment-type":
+            {
+                fields:['name']
             }
 
     };
