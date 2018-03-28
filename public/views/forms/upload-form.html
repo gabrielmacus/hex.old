@@ -1,12 +1,15 @@
-    <top data-title="'upload.title'" data-title-object="{'gallery':galleryName}">
+    <top data-title="'upload.title'" data-title-object="{'gallery':currentGallery.name}">
     </top>
+    <div class="allowed-extensions">
+        {{'gallery.allowedExtensions' | translate}}: <span class="extensions" >{{currentGallery.extensions.join(', ')}}</span><!--<span class="ext" data-ng-repeat="ext in currentGallery.extensions">{{ext}}</span>-->
+    </div>
 
+    <upload-field data-validation-errors="validationErrors['files']" data-model="files" data-gallery="gallery"   data-upload-url="/api/file/upload" data-save-url="/api/file/"></upload-field>
 
-    <upload-field  data-model="files" data-gallery="gallery"   data-upload-url="/api/file/upload" data-save-url="/api/file/"></upload-field>
-
+    <!--
     <p  data-ng-if="!files || files.length ==0" class="empty-upload">
         {{'upload.noFiles' | translate}}
-    </p>
+    </p>--->
     <!--
     [{"path":"/.tmp/upload_1d09e9ed8ab486dfe1de3bcbb5c94c24.jpg","size":132937,"contentType":"image/jpeg","filename":"04fc293b-0688-459b-82f8-5ea07c3d953d.jpg","gallery":"5ab1bb822456de0cd8830ac3"}]-->
     <ul data-ng-if="files.length > 0" class="files-preview">

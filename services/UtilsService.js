@@ -89,7 +89,7 @@ module.exports=
                 return "";
             }
 
-            return object[key];
+            return (typeof object[key] == "object" || typeof object[key] == "array")?object[key]:object[key].toString();
         }
         
     }

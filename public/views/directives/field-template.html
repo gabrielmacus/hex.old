@@ -15,19 +15,22 @@
 </div>
 
 <div class="form-field" data-ng-if="type == 'tags'">
-    <input data-ng-init="$parent.model= []" id="{{$parent.label}}"  data-ng-keyup="processTagInput($event,$parent.model)" type="text">
-    <label  for="{{$parent.label}}">{{ $parent.label | translate}} <b style="font-size: 15px;font-weight: 600">({{'commaSeparated' | translate}})</b></label>
+    <input   data-ng-init="$parent.model= []" id="{{$parent.label}}"  data-ng-keyup="processTagInput($event,$parent.model)" type="text">
+    <label  for="{{$parent.label}}">{{ $parent.label | translate}} <!--<b style="font-size: 15px;font-weight: 600">({{'commaSeparated' | translate}})</b>--></label>
 
     <ul class="tags"  >
         <li data-ng-repeat="(k,t) in $parent.model">{{t}} <span style="cursor: pointer"  data-ng-click="$parent.model.splice(k,1)" class="delete-tag"><img src="/images/icons-delete.svg"></span></li>
     </ul>
 </div>
 
-
 <footer  class="form-submit" data-ng-if="type == 'submit'">
 
     <input type="submit" class="button" value="{{ $parent.label | translate}}">
 </footer>
+
+
+
+
 <ul data-ng-if="validationErrors && validationErrors.length > 0" class="fade-static validation-errors">
 
     <li class="validation-error" data-ng-repeat="(k,error) in validationErrors ">{{ 'validation.'+error.message | translate:error.data}}</li>

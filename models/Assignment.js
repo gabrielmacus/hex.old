@@ -11,6 +11,7 @@ var schema = new Schema({
     persons:[{ref:'Person',type:Schema.Types.ObjectId}],
     createdBy:{type:Schema.Types.ObjectId,ref:'User',required:true},
     place:{type:Number,required:true,default:1},
+    description:{type:String}
 
 
 }, {

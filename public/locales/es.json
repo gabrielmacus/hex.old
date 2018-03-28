@@ -81,7 +81,12 @@
   "or":"o",
   "facebook-post":"Post de facebook",
 
+  "validation.shouldBeValidDate":"Debe ser una fecha válida",
   "validation.lengthBetween":"Debe tener entre {{min}} y {{max}} caracteres",
+  "validation.numberBetween":"Debe estar entre el {{min}} y el {{max}}",
+  "validation.rangeLength":"Seleccione entre {{min}} y {{max}}",
+  "validation.selectAnOption":"Seleccione una opción válida",
+  "validation.minSelected":"Seleccione entre {{min}} y {{max}} opciones",
 
   "assignmentPlace":"Sala",
   "person/s":"Persona/s",
@@ -95,5 +100,8 @@
   "login.incorrectData":"Datos incorrectos. Verifique usuario y contraseña",
   "login.unknownError":"Error desconocido. Inténtelo en unos instantes",
   "upload.noFiles":"No hay archivos para subir...",
-  "upload.title":"Subiendo a la galería {{gallery}}"
+  "upload.title":"Subiendo a la galería {{gallery}}",
+
+  "gallery.allowedExtensions":"Extensiones permitidas",
+  "gallery.blankIsAll":"Si lo deja vacio, todas son permitidas"
 }

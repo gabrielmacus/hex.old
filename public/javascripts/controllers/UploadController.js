@@ -7,7 +7,8 @@ app.controller('upload-controller', function ($scope,$rootScope,$routeParams,$lo
     $scope.loadCurrentGallery=function () {
         axios.get('/api/gallery/'+$scope.gallery,{headers:$rootScope.headers})
             .then(function (response) {
-                $scope.galleryName = response.data.name;
+                $scope.currentGallery = response.data;
+                $scope.$apply();
             })
             .catch($rootScope.errorHandler);
 

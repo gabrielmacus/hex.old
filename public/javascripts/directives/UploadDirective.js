@@ -31,7 +31,9 @@ app
                 });
 
             },
-            controller:function ($scope,$rootScope,$location) {
+            controller:function ($scope,$rootScope,$location,$window) {
+
+
 
                 $scope.model = [];
 
@@ -66,6 +68,12 @@ app
                             })
 
                             $scope.$apply();
+
+                            var qs= $location.search();
+                            if(qs.model)
+                            {
+                               $window.parent.postMessage({items:res.data,model:qs.model},'*');
+                            }
 
 
 

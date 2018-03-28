@@ -1,11 +1,10 @@
 <div class="associated-files">
-    <field data-type="custom" data-label="images">
+    <field data-type="custom" data-label="images" data-ng-class="{'with-files':model.length}">
 
 
-        <p class="empty-associated-files" data-ng-if="!model || model.length == 0">{{'associated.empty' | translate}}</p>
 
-        <ul data-ng-if="model && model.length > 0" class="associated-files-list">
-            <li data-ng-repeat="(k,item) in model">
+        <ul data-ng-if="model && model.length > 0" class="row associated-files-list">
+            <li class="col" data-ng-repeat="(k,item) in model">
                 <file-preview data-file="item[ref]">
                     <span  data-ng-click="deleteAssociatedFile(k)" class="delete-preview"><img src="/images/trash.svg"></span>
                     <ng-transclude></ng-transclude>
@@ -13,14 +12,18 @@
                 <!-- transclude -->
             </li>
         </ul>
-
-        <span class="upload-from">{{'associated.uploadFrom' | translate}}</span>
-
-        <a class="link" data-ng-click="lightboxOptions.open=true">{{'associated.addFromGallery' | translate}}</a>
-        {{'or' | translate}}
-        <a class="link">{{'associated.uploadFromDevice' | translate}}</a>
+        <p class="empty-associated-files" data-ng-if="!model || model.length == 0">{{'associated.empty' | translate}}</p>
 
 
+        <div class="col">
+
+            <span class="upload-from">{{'associated.uploadFrom' | translate}}</span>
+            <a class="link" data-ng-click="openUploadFromGallery()">{{'associated.addFromGallery' | translate}}</a>
+            {{'or' | translate}}
+            <a class="link" data-ng-click="openUploadFromDevice()">{{'associated.uploadFromDevice' | translate}}</a>
+
+
+        </div>
 
         <lightbox   data-options="lightboxOptions" class=" associated-file-lightbox " data-ng-if="lightboxOptions.open">
             <iframe data-ng-src="{{lightboxOptions.src}}"></iframe>

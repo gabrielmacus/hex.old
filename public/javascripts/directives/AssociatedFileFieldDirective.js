@@ -31,15 +31,25 @@ app
                     $scope.model.splice(k,1);
 
                 }
-                $scope.$watch('modelName',function () {
+                $scope.openUploadFromDevice=function () {
+
                     $scope.lightboxOptions={
-                        src:window.location.origin+'/?popup=true&access_token='+$cookies.get('access_token')+'#!/gallery/'+$scope.gallery+'/files?model='+$scope.modelName+'&exclude='
+                        open:true,
+                        src:window.location.origin+'/?popup=true&access_token='+$cookies.get('access_token')+'#!/gallery/'+$scope.gallery+'/upload?model='+$scope.modelName
                     }
 
-                });
+                }
+                $scope.openUploadFromGallery=function () {
+                    $scope.lightboxOptions={
+                        open:true,
+                        src:window.location.origin+'/?popup=true&access_token='+$cookies.get('access_token')+'#!/gallery/'+$scope.gallery+'/files?model='+$scope.modelName+'&exclude='
+                    }
+                }
+
     /*
     *             var qs = $location.search();
                 if(qs.model)*/
+
 
 
                 $window.addEventListener('message', function(event){
@@ -53,6 +63,10 @@ app
                             data[$scope.ref] = f;
                             $scope.model.push(data);
                         });
+
+                        $scope.lightboxOptions.open=false;
+
+                        $scope.$apply();
                     }
                 });
 
