@@ -87,6 +87,7 @@
   "validation.rangeLength":"Seleccione entre {{min}} y {{max}}",
   "validation.selectAnOption":"Seleccione una opción válida",
   "validation.minSelected":"Seleccione entre {{min}} y {{max}} opciones",
+  "validation.extensionNotAllowed":"Tipo de archivo no permitido",
 
   "assignmentPlace":"Sala",
   "person/s":"Persona/s",

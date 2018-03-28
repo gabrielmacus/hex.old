@@ -6,10 +6,11 @@
 
     <ul data-ng-if="uploadedFiles && uploadedFiles.length" class="upladed-files">
 
-        <li data-ng-repeat="file in uploadedFiles">
+        <li data-ng-repeat="(j,file) in uploadedFiles">
 
             <file-preview data-file="file">
             </file-preview>
+
 
             <!--
             <figure>

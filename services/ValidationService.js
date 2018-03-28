@@ -50,8 +50,8 @@ module.exports=
 
                         if(gal.extensions.indexOf(ext.toLowerCase()) == -1)
                         {
-                            errors['files'] = [];
-                            errors['files'].push({message:"extensionNotAllowed",data:{filename:UtilsService.get('filename',req.body)}});
+                            errors['files'] = {};
+                            errors['files'][UtilsService.get('path',req.body)]= ({message:"extensionNotAllowed",data:{filename:UtilsService.get('filename',req.body)}});
                         }
 
                     }

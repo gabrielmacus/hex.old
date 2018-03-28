@@ -1,9 +1,14 @@
 
+
+const path = require('path');
+process.env.ROLES_PATH = path.join(require('app-root-dir').get(),"test/roles-rest.json");
+process.env.NODE_ENV="test";
+var dotenv = require('dotenv').config({path:"C:\\Users\\Gabriel\\WebstormProjects\\hex\\env\\test.env"});
+
 const app = require('../app.js');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiHttp = require('chai-http');
-const path = require('path');
 const User = require('../models/User');
 const Person = require('../models/Person');
 chai.use(chaiHttp);
@@ -11,10 +16,6 @@ const async = require('async');
 
 //const mongoose  =require('mongoose');
 
-
-process.env.ROLES_PATH = path.join(require('app-root-dir').get(),"test/roles-rest.json");
-process.env.NODE_ENV="test";
-var dotenv = require('dotenv').config({path:"C:\\Users\\Puers\\WebstormProjects\\hex\\env\\test.env"});
 
 
 describe('REST test', function() {

@@ -19,6 +19,7 @@ html
 
 
                 $scope.login=function () {
+
                     $scope.errorMsg = "";
                     axios.post('/auth/token', $scope.user)
                         .then(function (response) {
@@ -28,6 +29,7 @@ html
 
                         })
                         .catch(function (error) {
+
 
                             if(error.response.status == 400)
                             {

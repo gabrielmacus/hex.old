@@ -19,17 +19,46 @@ app.controller('upload-controller', function ($scope,$rootScope,$routeParams,$lo
 
         asyncForEach(angular.copy(files),function () {
 
+            if(files.length == 0)
+            {
+                $location.path('/gallery/'+$scope.currentGallery._id+"/files");
+                $scope.$apply();
+
+            }
+
         },function (file,index,next) {
 
             if(!file._id)
             {
-                console.log(file);
                 axios.post('/api/file/',file,{headers:$rootScope.headers})
                     .then(function (response) {
-                        console.log(response);
+                        //TODO: fire toast on successfully uploaded file
+                        files.splice(index,1);
+                        $scope.$apply();
+
+
                         next();
                     })
-                    .catch($rootScope.errorHandler);
+                    .catch(function (error) {
+
+
+                        if(error.response.data.type && error.response.data.type == 'ValidationError')
+                        {
+
+                            console.log(error.response.data.details);
+                            $scope.validationErrors = error.response.data.details;
+
+
+                            $scope.$apply();
+
+                        }
+                        else
+                        {
+                            $rootScope.errorHandler(error);
+                        }
+
+
+                    });
             }
 
 
