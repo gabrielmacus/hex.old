@@ -14,13 +14,19 @@ app
 
                 }
 
-                $scope.setActive=function(){
+                $scope.setActive=function(m){
 
                     var filter = $scope.menuItems.filter(function (t) {
                         t.active = false;
                         t = angular.copy(t);
                         t = t.href.replace("#!","");
-                        return (t==$location.path());
+
+                        if(!m)
+                        {
+                            m= $location.path();
+                        }
+
+                        return (t.indexOf(m) > -1);
                     });
                     if(filter && filter.length)
                     {
@@ -29,7 +35,11 @@ app
 
                     }
                 };
-                $scope.$on('$locationChangeSuccess', $scope.setActive);
+                $scope.$on('$locationChangeSuccess', function(){
+
+                    document.querySelector("aside").classList.remove("open");
+                    $scope.setActive();
+                });
 
                 $scope.menuItems = [];
 

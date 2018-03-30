@@ -11,6 +11,11 @@ app.service('filetype', function() {
                 return 'video';
                 break;
 
+            case (mime.indexOf('audio/') > -1):
+
+                return 'audio';
+
+                break;
             default:
                 return 'binary';
                 break;

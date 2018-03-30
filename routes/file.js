@@ -7,7 +7,7 @@ module.exports=
     {
         upload:function (req,res,next ) {
             var form = new formidable.IncomingForm();
-
+            form.maxFileSize =   process.env.MAX_UPLOAD_SIZE * 1024 * 1024;
             form.parse(req,function (err,fields,files) {
 
                 if(err)

@@ -17,14 +17,15 @@ app.controller('upload-controller', function ($scope,$rootScope,$routeParams,$lo
     $scope.saveFiles= function (files) {
 
 
-        asyncForEach(angular.copy(files),function () {
 
-            if(files.length == 0)
+        asyncForEach(angular.copy(files),function (err) {
+
+            if(!err)
             {
                 $location.path('/gallery/'+$scope.currentGallery._id+"/files");
                 $scope.$apply();
-
             }
+
 
         },function (file,index,next) {
 
@@ -41,8 +42,9 @@ app.controller('upload-controller', function ($scope,$rootScope,$routeParams,$lo
                     })
                     .catch(function (error) {
 
+                        console.log(error);
 
-                        if(error.response.data.type && error.response.data.type == 'ValidationError')
+                        if(error.response && error.response.data && error.response.data.type && error.response.data.type == 'ValidationError')
                         {
 
                             console.log(error.response.data.details);

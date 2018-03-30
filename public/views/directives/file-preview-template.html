@@ -2,9 +2,11 @@
 
     <img data-ng-if="getType(file.contentType) == 'image'" data-ng-src="{{file.path}}">
 
-    <video data-ng-if="getType(file.contentType) == 'video'" data-ng-src="{{file.path}}"></video>
+    <video controls preload="metadata" data-ng-if="getType(file.contentType) == 'video'" data-ng-src="{{file.path}}"></video>
 
 
+    <audio data-ng-if="getType(file.contentType) == 'audio'"  data-ng-src="{{file.path}}"   controls>
+    </audio>
 </figure>
 
 <ng-transclude></ng-transclude>

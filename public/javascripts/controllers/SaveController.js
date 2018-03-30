@@ -1,5 +1,6 @@
 app.controller('save-controller', function ($scope,$rootScope,$routeParams,$location,$controller) {
 
+
     $rootScope.bodyClass ={"save":true};
     $scope.item = {};
     var url ="/api/".concat($routeParams.model);

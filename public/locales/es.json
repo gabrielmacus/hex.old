@@ -1,4 +1,6 @@
 {
+  "welcome":"Bienvenido, <span class='current-user-name'>{{name}}</span>",
+
   "username":"Nombre de usuario",
   "password":"Contaseña",
   "login":"Ingresar",

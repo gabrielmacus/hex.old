@@ -1,5 +1,7 @@
 app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,$cookies,$location,$compile) {
 
+    $rootScope.currentUser = user;
+
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
     $rootScope.errorHandler=function (error) {
@@ -73,7 +75,11 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
 
     $rootScope.config={
-        product:{fields:["title"]},
+        product:{fields:["title",{label:'image',field:'images',render:function(item){
+
+            console.log(item);
+            return "<img src='"+item.images[0].image.path+"'>";
+        }}]},
         user:{fields:['name']},
         "facebook-post":{fields:['title','description','price',{label:'type',field:'type',render:function (item) {
 
@@ -117,7 +123,12 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
 
              }}
              ,
-                'place'
+                 {label:'assignmentPlace',field:'place',render:function (i) {
+
+                     console.log(i);
+                     return i.place;
+
+                 }}
              ]
             },
         "assignment-type":

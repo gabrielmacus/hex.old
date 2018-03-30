@@ -3,8 +3,8 @@
 
 
 
-        <ul data-ng-if="model && model.length > 0" class="row associated-files-list">
-            <li class="col" data-ng-repeat="(k,item) in model">
+        <ul  data-ng-if="model && model.length > 0" class="row associated-files-list">
+            <li class="col" data-ng-repeat="(k,item) in model" >
                 <file-preview data-file="item[ref]">
                     <span  data-ng-click="deleteAssociatedFile(k)" class="delete-preview"><img src="/images/trash.svg"></span>
                     <ng-transclude></ng-transclude>
@@ -19,9 +19,10 @@
 
             <span class="upload-from">{{'associated.uploadFrom' | translate}}</span>
             <a class="link" data-ng-click="openUploadFromGallery()">{{'associated.addFromGallery' | translate}}</a>
+            <!--
             {{'or' | translate}}
             <a class="link" data-ng-click="openUploadFromDevice()">{{'associated.uploadFromDevice' | translate}}</a>
-
+            -->
 
         </div>
 

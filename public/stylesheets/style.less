@@ -13,7 +13,7 @@ input:-webkit-autofill:active {
 body *{
   font-family: @mainFont!important;
   color: @mainTypoColor;
-
+  word-wrap: break-word;
 }
 
 
@@ -191,6 +191,7 @@ main list tbody tr:nth-child(even)
   //background-color: white;
 }
 main list > table{
+
   width: 100%;//~"calc(100% - 40px)";
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   margin: auto;
@@ -491,8 +492,13 @@ frecuency-field .form-field [type='number']
   object-fit: cover;
   background: white;
 }
-
+.file-preview
+{
+  overflow:hidden;
+}
 .files-preview{
+
+
   float: left;
   width: 100%;
   margin-bottom: @padding;
@@ -530,7 +536,7 @@ frecuency-field .form-field [type='number']
 }
 .associated-files .form-field > .col + * + label{
   position: static;
-  margin-bottom:  @padding2;
+  //margin-bottom:  @padding2;
   order: 0;
 }
 .associated-files .form-field > .col + *
@@ -541,8 +547,16 @@ frecuency-field .form-field [type='number']
 {
 
 }
+.associated-files li
+{
+  padding: 20px;
+  background: #EEEEEE;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
 .with-files .col
 {
+
   top:@padding2!important;
 }
 
@@ -804,6 +818,11 @@ input[type='file']
 @mobileMenuHeight:50px;
 @media all and (max-width: 1024px) {
 
+  main list  > table
+  {
+    float: left;
+    display: block;
+  }
   .col
   {
     width: 100%;
@@ -925,8 +944,10 @@ input[type='file']
     margin-bottom: @padding;
   }
 
+
   table tbody td
   {
+
 
     padding-left: @padding;
     padding-right: @padding;
@@ -1005,4 +1026,9 @@ input[type='file']
 .files-preview .validation-errors
 {
   position: relative;
+}
+
+.current-user-name
+{
+  color: @mainColor;
 }

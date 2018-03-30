@@ -5,8 +5,9 @@ var passport = require('passport');
 router.get('/',passport.authenticate(['jwt'], { failureRedirect: '/login' }),function(req, res, next) {
 
     res.cookie('_id',req.user._id.toString(), { maxAge: 900000 });
-
-    res.render('index', {lang:req.params.language,user:req.user,popup:(req.query.popup)?req.query.popup:false});
+    var user = req.user;
+    delete user.password;
+    res.render('index', {lang:req.params.language,user:user,popup:(req.query.popup)?req.query.popup:false});
 });
 
 router.get('/login',function(req,res,next){
