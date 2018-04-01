@@ -1,17 +1,19 @@
 <div class="associated-files">
     <field data-type="custom" data-label="images" data-ng-class="{'with-files':model.length}">
 
+        <div data-ng-if="model && model.length > 0">
+            <ul   ng-sortable="sortableConf" class="row associated-files-list">
+                <li class="col" data-ng-repeat="(k,item) in model" >
+                    <file-preview data-file="item[ref]">
+                        <span class="grab-handle"><img src="/images/drag.svg"></span>
+                        <span  data-ng-click="deleteAssociatedFile(k)" class="delete-preview"><img src="/images/trash.svg"></span>
+                        <ng-transclude></ng-transclude>
+                    </file-preview>
+                    <!-- transclude -->
+                </li>
+            </ul>
+        </div>
 
-
-        <ul  data-ng-if="model && model.length > 0" class="row associated-files-list">
-            <li class="col" data-ng-repeat="(k,item) in model" >
-                <file-preview data-file="item[ref]">
-                    <span  data-ng-click="deleteAssociatedFile(k)" class="delete-preview"><img src="/images/trash.svg"></span>
-                    <ng-transclude></ng-transclude>
-                </file-preview>
-                <!-- transclude -->
-            </li>
-        </ul>
         <p class="empty-associated-files" data-ng-if="!model || model.length == 0">{{'associated.empty' | translate}}</p>
 
 
@@ -19,18 +21,16 @@
 
             <span class="upload-from">{{'associated.uploadFrom' | translate}}</span>
             <a class="link" data-ng-click="openUploadFromGallery()">{{'associated.addFromGallery' | translate}}</a>
-            <!--
+
             {{'or' | translate}}
             <a class="link" data-ng-click="openUploadFromDevice()">{{'associated.uploadFromDevice' | translate}}</a>
-            -->
 
         </div>
 
         <lightbox   data-options="lightboxOptions" class=" associated-file-lightbox " data-ng-if="lightboxOptions.open">
             <iframe data-ng-src="{{lightboxOptions.src}}"></iframe>
 
-            <span data-ng-click="lightboxOptions.open = false" class="close show-on-popup"><img src="/images/icons-delete.svg"></span>
-        </lightbox>
+         </lightbox>
 
 
     </field>

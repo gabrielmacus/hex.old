@@ -1,7 +1,9 @@
 app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,$cookies,$location,$compile) {
 
     $rootScope.currentUser = user;
-
+    $scope.trustSrc = function(src) {
+        return $sce.trustAsResourceUrl(src);
+    }
 
     $rootScope.headers = {'Authorization':'JWT '+$cookies.get("access_token")};
     $rootScope.errorHandler=function (error) {

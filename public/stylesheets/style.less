@@ -326,6 +326,7 @@ lightbox > .overlay
 lightbox .confirmation-dialog
 {margin: auto;
   background: white;
+  position: relative;
 
 }
 lightbox .confirmation-dialog header
@@ -488,9 +489,13 @@ frecuency-field .form-field [type='number']
 }
 .file-preview > *
 {width: 100%;
-  height: 300px;
-  object-fit: cover;
+
   background: white;
+}
+.file-preview img
+{
+  //min-height: 300px;
+  object-fit: cover;
 }
 .file-preview
 {
@@ -553,16 +558,21 @@ frecuency-field .form-field [type='number']
   background: #EEEEEE;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+.col
+{
+  position: relative;
+}
 
 .with-files .col
 {
 
-  top:@padding2!important;
+  //top:@padding2!important;
 }
 
 .associated-files .form-field > .col
 {position: relative;
-  top: -@padding2;
+  //top: -@padding2;
+  margin-top: @padding;
   order: 2
 }
 
@@ -724,7 +734,7 @@ form .validation-errors .validation-error:not(:first-child)
 
 td.is-file
 {
-  width: 30%;
+  width: 50%;
 }
 
 .border-menu {
@@ -818,6 +828,12 @@ input[type='file']
 @mobileMenuHeight:50px;
 @media all and (max-width: 1024px) {
 
+  table td > span >  img
+  {
+    position: relative;
+    left: -@padding;
+    width: calc(~"100% +" (@padding * 2));
+  }
   main list  > table
   {
     float: left;
@@ -1000,6 +1016,12 @@ input[type='file']
 
 @media all and (max-width: 768px) {
 
+  .associated-file-lightbox .confirmation-dialog
+  {
+    width: 90%;
+    height: 90vh;
+
+  }
   body.login main {
     width: 90%;
   }
@@ -1031,4 +1053,15 @@ input[type='file']
 .current-user-name
 {
   color: @mainColor;
+}
+.grab-handle
+{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  z-index: 1;
+  background: white;
+  padding: 5px;
+  cursor: move;
 }

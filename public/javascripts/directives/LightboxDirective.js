@@ -13,6 +13,9 @@ app
             },
             controller: function ($scope,$element,$timeout,$transclude,$compile) {
 
+                $scope.closeLightbox=function () {
+                    $scope.options.open=false;
+                }
             },
 
             templateUrl:"/views/directives/lightbox-template.html"

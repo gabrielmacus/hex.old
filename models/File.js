@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const urljoin = require('url-join');
+
 var FileService = require('../services/FileService');
 var schema = new Schema({
     filename: {type:String, required:true},
@@ -10,6 +12,11 @@ var schema = new Schema({
     gallery:{type:Schema.Types.ObjectId,ref:'Gallery'}
 }, {
     timestamps: true
+});
+schema.pre('init',function (doc) {
+
+   doc.path = urljoin(process.env.APP_URL,doc.path);
+
 });
 schema.post('validate', function(doc,next) {
     

@@ -12,6 +12,7 @@
     "async": "^2.6.0",
     "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
+    "cascading-relations": "^0.7.9",
     "chai-http": "^3.0.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -38,6 +39,7 @@
     "mv": "^2.1.1",
     "node-cmd": "^3.0.0",
     "node-cron": "^1.2.1",
+    "node-media-server": "^1.2.6",
     "nodemailer": "^4.6.3",
     "passport": "^0.4.0",
     "passport-facebook-token": "^3.3.0",
@@ -45,6 +47,7 @@
     "pug": "2.0.0-beta11",
     "request": "^2.85.0",
     "serve-favicon": "~2.4.5",
+    "url-join": "^4.0.0",
     "uuid": "^3.2.1",
     "validator": "^9.4.1",
     "webdriverio": "^4.12.0"

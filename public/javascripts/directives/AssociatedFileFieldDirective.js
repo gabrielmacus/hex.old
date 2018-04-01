@@ -17,6 +17,12 @@ app
             },
             controller: function ($scope,$rootScope,$location,$cookies,$window) {
 
+                $scope.sortableConf = {
+                    animation: 350,
+                    chosenClass: 'sortable-chosen',
+                    handle: '.grab-handle',
+                    forceFallback: true,
+                };
                 if(!$scope.ref)
                 {
                     $scope.ref = 'file';

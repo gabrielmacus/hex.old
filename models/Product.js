@@ -8,14 +8,30 @@ var schema = new Schema({
 }, {
     timestamps: true
 });
-
 var autoPopulate= function(next) {
     this.populate('images.image');
+
     next();
 };
+var clearDeletedReferences = function (doc) {
+
+    if(doc.images)
+    {
+        for(var k in doc.images)
+        {
+
+            if(!doc.images[k].image)
+            {
+
+                doc.images.splice(k,1);
+            }
+        }
+    }
+}
 schema
     .pre('find', autoPopulate)
-    .pre('findOne', autoPopulate);
+    .pre('findOne', autoPopulate)
+    .pre('init',clearDeletedReferences);
 
 
     module.exports= db.model('Product',schema);
