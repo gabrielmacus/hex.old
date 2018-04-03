@@ -37,7 +37,7 @@ app
                 };
                 $scope.$on('$locationChangeSuccess', function(){
 
-                    document.querySelector("aside").classList.remove("open");
+                    closeMenu();
                     $scope.setActive();
                 });
 

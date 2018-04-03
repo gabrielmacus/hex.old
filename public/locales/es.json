@@ -25,7 +25,7 @@
   "fileGallery.plural":"Archivos de la galería {{galleryName}}",
   "edit":"Editar",
   "delete":"Eliminar",
-  "confirm.delete":"Confirmar eliminación",
+  "confirm.delete":"Confirmar eliminación de <span class='highlight'>{{name}}</span>",
   "yes":"Si",
   "no":"No",
   "submit":"Aceptar",

@@ -110,17 +110,20 @@ paginator ol  .paginator-prev
 
 body > aside
 {
-  transition: all 200ms;
+
+  min-height: 100%;
+  transition: left 150ms ease-out;
   width: 30%;
   float: left;
   position: fixed;
-  min-height: 100%;
   z-index: 3;
   background-color: @mainColor;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
 body > main{
+
+  transition: all 250ms;
   width: 70%;
   top: 0;
   right: 0;
@@ -140,6 +143,18 @@ body > aside > menu a
   text-decoration: none;
   padding: @padding;
   color: white;
+}
+body > aside > menu
+{
+  position: absolute;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+body > aside > menu nav
+{
+
+  width: 100%;
 }
 body > aside > menu a.active
 {
@@ -494,6 +509,7 @@ frecuency-field .form-field [type='number']
 }
 .file-preview img
 {
+  height: 300px;
   //min-height: 300px;
   object-fit: cover;
 }
@@ -771,6 +787,8 @@ body.login
 
 body.login main
 {
+
+  transition:all 500ms;
   width: 30%;
   left: 0;
   right: 0;
@@ -826,8 +844,19 @@ input[type='file']
 
 
 @mobileMenuHeight:50px;
+
 @media all and (max-width: 1024px) {
 
+  body.overflow-hidden
+  {
+    overflow: hidden;
+  }
+  aside.open + main{
+
+    overflow: hidden;
+    //filter:grayscale(1) ;
+    opacity: 0.3;
+  }
   table td > span >  img
   {
     position: relative;
@@ -907,6 +936,8 @@ input[type='file']
 
   body > aside
   {
+
+
     width: 65%;
     left: -65%;
   }
@@ -1016,6 +1047,10 @@ input[type='file']
 
 @media all and (max-width: 768px) {
 
+  .file-preview img
+  {
+    height: 200px;
+  }
   .associated-file-lightbox .confirmation-dialog
   {
     width: 90%;
@@ -1033,6 +1068,8 @@ input[type='file']
 
 
 }
+
+
 .login-error p
 {
   color: @errorColor;
@@ -1074,4 +1111,32 @@ input[type='file']
 .streaming-container video
 {
   width: 100%;
+}
+@media all and (max-height: 400px) {
+
+  body.login  *
+  {
+    font-size: 100%!important;
+  }
+  body.login footer
+  {
+    padding-top: @padding2;
+    padding-bottom: @padding2;
+  }
+
+  body.login top
+  {
+    display: none;
+    // transform: scale(0.6);
+  }
+
+}
+
+lightbox .hide-close .close
+{
+  display: none;
+}
+.highlight
+{    font-weight: 600;
+  color: @focusedInputColor;
 }

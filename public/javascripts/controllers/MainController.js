@@ -36,7 +36,9 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
                                 $rootScope.confirmDialog.open=false;
 
                             },
+                            class:{"hide-close":true},
                             title:"confirm.delete",
+                            titleData:{name:(i.title || i.name || i.filename || i._id)},
                             open:true
                         };
 
@@ -141,7 +143,7 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
             },
             streaming:
                 {
-                 listController:'streaming-controller',
+                 listController:'dynamic-list-controller',
                  fields:['path','views'], actions:function () {return streamingActions;}
             }
 
