@@ -42,3 +42,9 @@
 .icon-radio-unchecked:before {
   content: "\ea56";
 }
+
+.list.streaming footer
+{
+  display: none;
+}
+

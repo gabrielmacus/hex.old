@@ -47,6 +47,7 @@
     "pug": "2.0.0-beta11",
     "request": "^2.85.0",
     "serve-favicon": "~2.4.5",
+    "sse": "0.0.8",
     "url-join": "^4.0.0",
     "uuid": "^3.2.1",
     "validator": "^9.4.1",

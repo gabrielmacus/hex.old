@@ -15,7 +15,10 @@
   "menu.galleries":"Galerías",
   "menu.assignments":"Asignaciones",
   "menu.assignmentsTypes":"Tipos de asignaciones",
+  "menu.streamings":"Transmisiones",
 
+  "streaming.plural":"Transmisiones",
+  "streaming.watch":"Visualizar",
 
   "product.plural":"Productos",
   "facebook-post.plural":"Posts de facebook",
@@ -106,5 +109,7 @@
   "upload.title":"Subiendo a la galería {{gallery}}",
 
   "gallery.allowedExtensions":"Extensiones permitidas",
-  "gallery.blankIsAll":"Si lo deja vacio, todas son permitidas"
+  "gallery.blankIsAll":"Si lo deja vacio, todas son permitidas",
+
+  "views":"Vistas"
 }

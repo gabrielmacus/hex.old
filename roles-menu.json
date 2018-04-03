@@ -18,6 +18,11 @@
         "href":"#!/person"
       },
       {
+        "text":"menu.streamings",
+        "href":"#!/streaming"
+      }
+      ,
+      {
         "text":"menu.galleries",
         "href":"#!/gallery"
       }

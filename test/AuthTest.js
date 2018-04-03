@@ -1,9 +1,13 @@
+const path = require('path');
+process.env.ROLES_PATH = path.join(require('app-root-dir').get(),"test/roles-rest.json");
+process.env.NODE_ENV="test";
+var dotenv = require('dotenv').config({path:path.join(require('app-root-dir').get(),'/env/test.env')});
 
 const app = require('../app.js');
 const chai = require('chai');
 const expect = chai.expect;
 const chaiHttp = require('chai-http');
-const path = require('path');
+
 const User = require('../models/User');
 
 chai.use(chaiHttp);

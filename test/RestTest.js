@@ -3,7 +3,7 @@
 const path = require('path');
 process.env.ROLES_PATH = path.join(require('app-root-dir').get(),"test/roles-rest.json");
 process.env.NODE_ENV="test";
-var dotenv = require('dotenv').config({path:"C:\\Users\\Gabriel\\WebstormProjects\\hex\\env\\test.env"});
+var dotenv = require('dotenv').config({path:path.join(require('app-root-dir').get(),'/env/test.env')});
 
 const app = require('../app.js');
 const chai = require('chai');
@@ -24,7 +24,9 @@ describe('REST test', function() {
     var token2 ="";
     var token3="";
     var id2 ="";
+    var person2 ="";
     var idToUpdate = "";
+    var personToUpdate="";
     var idPostDemo ="";
 
     before(function (done) {
@@ -172,6 +174,7 @@ describe('REST test', function() {
                 expect(response).to.have.status(200);
                 expect(response.body).to.have.property('_id');
                 idToUpdate = response.body._id;
+                personToUpdate = response.body;
                 done();
 
             });
@@ -194,6 +197,7 @@ describe('REST test', function() {
                 expect(response).to.have.status(200);
                 expect(response.body).to.have.property('_id');
                 id2 = response.body._id;
+                person2  =response.body;
                 Person.find({}).exec(function (err,persons) {
                     expect(persons).to.have.lengthOf(2);
                     done();
@@ -263,13 +267,11 @@ describe('REST test', function() {
 
     it("Updates a person", function (done) {
 
-        var person = {
-            name: "John"
-        };
+        personToUpdate.name = 'John';
         chai.request(app)
             .put('/api/person/' + idToUpdate + '')
             .set('Authorization', 'JWT ' + token)
-            .send(person)
+            .send(personToUpdate)
             .end(function (error, response) {
 
 
@@ -372,7 +374,7 @@ describe('REST test', function() {
 
         chai.request(app)
             .put('/api/person/'+id2+'')
-            .send({name:"Juancito"})
+            .send(person2)
             .set('Authorization', 'JWT ' + token2)
             .end(function (error, response) {
 

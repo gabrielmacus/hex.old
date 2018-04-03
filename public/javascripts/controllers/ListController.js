@@ -1,10 +1,12 @@
-app.controller('list-controller', function ($scope,$rootScope,$routeParams,$window,$location) {
-    $rootScope.bodyClass ={"list":true};
-    var url ="/api/".concat($routeParams.model);
+app.controller('list-controller', function ($scope,$rootScope,$routeParams,$window,$location,$controller) {
 
-
+    $scope.url ="/api/".concat($routeParams.model);
 
     $scope.model=$routeParams.model;
+
+    $rootScope.bodyClass ={"list":true};
+    $rootScope.bodyClass[$scope.model] = true;
+
     $scope.query = {page:1,sort:"-createdAt"};
     $scope.items = [];
 
@@ -28,7 +30,7 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$wind
 
         $scope.status='loading';
 
-        axios({url:url,params:$scope.query,method:"get",headers:$scope.headers})
+        axios({url:$scope.url,params:$scope.query,method:"get",headers:$scope.headers})
 
             .then(function (response) {
 
@@ -74,6 +76,13 @@ app.controller('list-controller', function ($scope,$rootScope,$routeParams,$wind
         }
 
     }
+
     $scope.loadList();
+
+    if($rootScope.config[$routeParams.model].listController)
+    {
+        $controller($rootScope.config[$routeParams.model].listController,{$scope:$scope,$routeParams:$routeParams});
+    }
+
 
 });

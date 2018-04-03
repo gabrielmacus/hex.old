@@ -18,7 +18,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="item" data-ng-repeat="i in items" data-ng-class="{active:i.selected}">
+    <tr data-ng-repeat="i in items" data-ng-class="{active:i.selected}">
         <td data-title="{{( f.label || f.field || f) | translate}}" data-ng-repeat="f in fields" data-ng-class="{'is-file':f.file}">
 
             <file-preview data-ng-if="f.file"  data-file='i'></file-preview>
@@ -29,7 +29,7 @@
             <span data-ng-if="f.render" data-ng-bind-html="f.render(i)"></span>
 
         </td>
-        <td class="actions-cell">
+        <td class="actions-cell" data-ng-if="getActions(i)">
 
             <div class="actions-wrapper">
                 <a class="button open-actions" data-ng-class="{opened:dropdown[i._id]}" data-ng-click="toggleDropdown(i)" >{{'actions' | translate}} <img class="dropdown-icon" src="/images/drop-down-arrow.svg"></a>

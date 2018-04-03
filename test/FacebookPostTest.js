@@ -1,5 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
+var app = require('../app');
 var FacebookPostService = require('../services/FacebookPostService')
 describe('FacebookPosttest', function() {
 

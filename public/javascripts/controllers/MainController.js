@@ -74,12 +74,15 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
             }}
 
          ]);
+    var streamingActions = [{text:'streaming.watch',action:function (i) {
 
+            $location.path('/streaming/'+i._id+'/watch');
+
+        }}];
 
     $rootScope.config={
         product:{fields:["title",{label:'image',field:'images',render:function(item){
 
-            console.log(item);
             return "<img src='"+item.images[0].image.path+"'>";
         }}]},
         user:{fields:['name']},
@@ -127,7 +130,6 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
              ,
                  {label:'assignmentPlace',field:'place',render:function (i) {
 
-                     console.log(i);
                      return i.place;
 
                  }}
@@ -136,6 +138,11 @@ app.controller('main-controller', function ($sce,$scope,$rootScope,$routeParams,
         "assignment-type":
             {
                 fields:['name']
+            },
+            streaming:
+                {
+                 listController:'streaming-controller',
+                 fields:['path','views'], actions:function () {return streamingActions;}
             }
 
     };

@@ -35,8 +35,6 @@ router.all(['/:model' ,'/:model/:id([a-fA-F\\d]{24})','/:model/:id([a-fA-F\\d]{2
 
     req.authorization = RoleService.IsAuthorized(req.user,req,(process.env.ROLES_PATH)?process.env.ROLES_PATH:null);
 
-
-
      if(!req.authorization)
     {
 
@@ -70,6 +68,7 @@ router.all(['/:model' ,'/:model/:id([a-fA-F\\d]{24})','/:model/:id([a-fA-F\\d]{2
         req.page = (req.query.page)?req.query.page:1;
 
         req.limit = parseInt(process.env.PAGINATION_LIMIT_DEFAULT);
+
 
 
         next();

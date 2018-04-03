@@ -29,3 +29,5 @@ app.config(['$translateProvider', function ($translateProvider, $translatePartia
     });
     $translateProvider.preferredLanguage('es');
 }]);
+
+

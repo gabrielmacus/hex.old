@@ -7,7 +7,7 @@ router.get('/',passport.authenticate(['jwt'], { failureRedirect: '/login' }),fun
     res.cookie('_id',req.user._id.toString(), { maxAge: 900000 });
     var user = req.user;
     delete user.password;
-    res.render('index', {lang:req.params.language,user:user,popup:(req.query.popup)?req.query.popup:false});
+    res.render('index', {media_url:process.env.MEDIA_URL,lang:req.params.language,user:user,popup:(req.query.popup)?req.query.popup:false});
 });
 
 router.get('/login',function(req,res,next){
